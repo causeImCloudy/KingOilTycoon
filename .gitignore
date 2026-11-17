@@ -1,0 +1,15 @@
+# Godot 4
+.godot/
+/android/
+*.translation
+export_presets.cfg
+/build/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+*.tmp
+
+# Reference material (separate repo, includes a Python venv)
+/REFERENCE/
