@@ -135,6 +135,57 @@ and the loadout.
 - **Campaign:** a light rise-to-tycoon story across the Texas oil fields, with recurring
   AI rival characters (each with their own personality and AI style).
 
+## Decisions (2026-11-18, part 2)
+### Campaign currency: Liquid Gold
+- One currency called **Liquid Gold**, earned in the campaign and spent on derrick/pipeline
+  upgrades. Its icon is a **pixel-art oil droplet** (black with a gold highlight).
+- It's separate from in-match dollars ($), which reset every match.
+
+### Drilling interaction
+- A **drill rig sits in a side panel** (a toolbar or rig tray). The player drags it out and
+  drops it onto an open drill site on a plot they own.
+- While dragging, valid sites highlight and invalid ones are dimmed or red. Dropping it
+  anywhere invalid sends it back to the tray. Keyboard and gamepad can pick a site and
+  confirm instead of dragging.
+- Dropping it plays the drilling animation, then the reveal:
+  - **Strike:** a gusher, with the depth shown (shallow/medium/deep). A derrick and well
+    cap stay on the site.
+  - **Dry hole:** dust and a sputter, and the site is capped as dry.
+  - The cost is shown at the reveal ($2k/$4k/$6k by depth).
+- The rules engine decides the result *before* the animation plays. The animation only
+  shows it. Online, the host sends the result and every client plays the same animation.
+- Other players see the same animation for every drill, not just their own.
+- **Reveal views (both):**
+  - The **cut-away pop-up** for your own drills shows a slice of ground with 3 strata. The
+    bit goes down and oil bursts out at the layer where it hits, or it passes through all
+    three and comes up dry.
+  - The **on-board** version is used for other players' drills (and when animations are
+    sped up): the derrick animates on the tile, the gusher height shows the depth, and a
+    label pops up.
+- **Characters (both):** a full-body animated figure stands in the cut-away pop-up next
+  to the rig, and a small animated portrait sits on each player's side panel and reacts
+  to every event.
+- **Art:** the user draws the droplet icon, rig, gusher, cards and character frames.
+  Until then the code uses simple placeholder frames with the same names and frame
+  counts, so the final sprite sheets can drop straight in.
+
+### Character animations
+- Each player's customizable tycoon character shows up during the drill and reacts:
+  anticipation while the drill runs, celebration on a strike, frustration on a dry hole.
+- The same reactions are used for other big moments (cards, buying land, bankruptcy).
+- Reactions are built in layers (body + outfit + hat, etc.) so customization works with
+  every animation.
+
+### Card drawing
+- Animated: the card slides off the deck, flips over, the effect plays (e.g. money flies
+  to the player, Fire Damage flames on the hit wells), then it goes to the discard pile.
+- Players can speed up or skip animations (a global speed setting). Blitz matches default
+  to fast animations.
+
+### Animation architecture
+- The rules engine (`scripts/game/`) emits an **event log** (e.g. `CardDrawn`, `WellDrilled`,
+  `RoyaltyPaid`). The presentation layer plays those events in order through an animation
+  queue. This keeps the rules headless and testable, lets online clients replay the
+  host's events, and makes skipping animations easy.
+
 ## Still open
-- What campaign resources are called and what currencies exist (e.g. one "barrels"
-  currency, or barrels plus special items)
