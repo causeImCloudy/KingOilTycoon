@@ -1,4 +1,4 @@
-# Oil Tycoon (working title)
+# Standard Oil: An Oil Tycoon Game
 
 A 2D pixel-art, turn-based oil-drilling strategy game built in **Godot 4 (GDScript)**.
 Inspired by the *genre* of 1970s oil-tycoon board games (e.g. King Oil). It is an
@@ -20,6 +20,14 @@ original's name, artwork, board, or card wording.
 - `REFERENCE/KingOilSim/` — the user's earlier Python rules sim (read-only reference;
   ignored by Godot and git). Port its rules, not its bugs; see design notes.
 - `tests/` — tests (GUT addon goes in `addons/` if adopted)
+- `addons/godotsteam/` — vendored GodotSteam GDExtension (don't edit; see design notes
+  for the Android-strip step on update). `steam_appid.txt` = 480 (Spacewar) for dev.
+
+## Multiplayer
+- Host-authoritative over Steam (`SteamMultiplayerPeer`); keep an ENet peer for local
+  testing. Clients send actions; only the host runs rules and the seeded RNG.
+- Support up to 6 players in all data structures.
+- Campaign upgrades never apply outside the campaign.
 
 ## Code style
 - GDScript, tabs, static typing (`var x: int`), snake_case files and functions,

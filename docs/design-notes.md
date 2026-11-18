@@ -68,8 +68,73 @@ the same layered-depth idea.
 - AI: rule-based GDScript opponents (easy/medium/hard) first.
 - Rules: port the sim's core loop faithfully (with its bugs fixed) before adding tycoon systems.
 
+## Decisions (2026-11-17)
+- **Title:** *Standard Oil: An Oil Tycoon Game*.
+- **Player count:** 2–4 players on standard maps (1v1, 3-player and 4-player free-for-all).
+  Larger expansion maps support 5–6 players. The procedural generator scales the number of
+  plots with player count. The Classic map is 2–4 only, and expansion maps cover 5–6.
+- **Style:** mid-1900s Texas oil boom (roughly 1930s–1950s): wooden derricks, gushers,
+  scrubland, pump jacks, boomtowns, period signage and typefaces, and a warm, dusty palette.
+- **Match length:** chosen before each match, like Civ VI's game speed.
+
+| Preset | Target length | Intended use |
+|---|---|---|
+| Classic | 3–4 hours | Full board-game pace, the faithful ruleset |
+| Online | about 1 hour | Default for online matches |
+| Blitz | about 30 min | Quick matches |
+
+  Speed knobs, to be tuned in playtests. The game ends when the bank runs dry, so bank
+  size is the main lever.
+  - Bank size, e.g. Classic $1M, Online ~$500k, Blitz ~$250k.
+  - Starting cash.
+  - Income per well (card payout multiplier).
+  - Wells you may drill per turn.
+  - Pipeline threshold and royalty rate.
+  - An optional round cap: when it's reached, the highest net worth wins.
+  - Turn timer for online play, e.g. none / 90s / 45s.
+
+  Store each preset as a `.tres` Resource in `data/match_speeds/` so tuning means editing
+  data, not code.
+
+## Decisions (2026-11-18)
+### Multiplayer
+- **Player-hosted:** one player hosts the match and the others join them. There's no
+  dedicated server.
+- **Transport:** Steam, using **GodotSteam** (GDExtension) and its `SteamMultiplayerPeer`
+  for lobbies, invites, and connecting through Steam's relay.
+- **Host authority:** the host runs the rules engine. Clients send *actions*, and the host
+  validates them and broadcasts the results or state. The seeded RNG lives only on the
+  host, so clients can't predict hidden oil.
+- **Installed:** GodotSteam GDExtension **4.24** (Steamworks SDK 1.65) in `addons/godotsteam/`,
+  from the official Codeberg release (MIT license). The Android binaries were removed and
+  their lines dropped from `godotsteam.gdextension`; redo this when updating. The
+  editor-plugin updater is left disabled. The extension loads without it.
+- **Dev:** `steam_appid.txt` (480) is in the project root. Steam must be running to test
+  networking. Leave this file out of exported builds.
+- **Dev:** use Steam test App ID 480 until there's a real App ID. Also keep a plain
+  ENet/LAN peer for testing without Steam, behind the same interface.
+- **5–6 players:** required for the first release, not during early development. Design the
+  data structures for up to 6 players from day one (the sim's AI tensor capped this at 4).
+
+### Tycoon features
+1. **Campaign:** about 20 hand-designed maps, played as a series against AI.
+2. **Progression / level-ups:** the campaign earns resources that permanently upgrade
+   derricks and pipelines (for example yield, drilling cost, pipeline royalties, fire
+   resistance). Upgrades are data-driven `.tres` trees in `data/upgrades/`.
+3. **Customization:** cosmetic choices for the player character (tycoon portrait or
+   outfit) and buildings (derrick, tool shed, pipeline skins and colours). Built with
+   palette swaps and layered sprites so the user's art can be mixed and matched.
+
+Save data lives in `user://`: campaign progress, upgrade levels, unlocked cosmetics,
+and the loadout.
+
+- **Upgrades are campaign-only.** Multiplayer and skirmish matches always use the base
+  stats, so online play stays balanced.
+- **Cosmetics:** a starter set is available from the start, and more unlock through
+  campaign maps, milestones and achievements. Cosmetics work in every mode.
+- **Campaign:** a light rise-to-tycoon story across the Texas oil fields, with recurring
+  AI rival characters (each with their own personality and AI style).
+
 ## Still open
-- Working title
-- Setting/era and tone
-- Win condition and game length
-- Which expanded systems come first
+- What campaign resources are called and what currencies exist (e.g. one "barrels"
+  currency, or barrels plus special items)
