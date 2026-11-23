@@ -1,0 +1,789 @@
+{
+	"default_field": "pasture",
+	"field_grid": {
+		"cell": 4,
+		"ids": [
+			"pasture",
+			"hay_meadow",
+			"dry_grass"
+		],
+		"rows": [
+			"BBBBBBBBBBBBBBBBBBBBBBBBCCCBBBBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBBBBBBBCCCBBBBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBBBBBBBCCCBBBBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBBBBCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBBBBCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBBBBCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBAAAAAACCCCCCAAAAAAAAABBBBBBBBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBAAAAAACCCCCCAAAAAAAAABBBBBBBBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBAAAAAACCCCCCAAAAAAAAABBBBBBBBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCBBBAAAAAAAAAAAACCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCBBBAAAAAAAAAAAACCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCBBBAAAAAAAAAAAACCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBB",
+			"BBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAA",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAA",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAA",
+			"CCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAA",
+			"CCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAA",
+			"CCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAA",
+			"CCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAA",
+			"CCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAA",
+			"CCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAA",
+			"CCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"CCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"CCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"BBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"BBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"BBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"BBBBBBBBBCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"BBBBBBBBBCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"BBBBBBBBBCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAACCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAACCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAACCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCBBBBBBBBBBBBBBBBBBAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCBBBBBBBBBBBBBBBBBBAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCBBBBBBBBBBBBBBBBBBAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBCCCCCCCCCAAAAAAAAACCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBCCCCCCCCCAAAAAAAAACCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBCCCCCCCCCAAAAAAAAACCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC"
+		]
+	},
+	"lines": [
+		{
+			"kind": "dirt_road",
+			"points": [
+				[
+					0.0,
+					17.0
+				],
+				[
+					3.0,
+					17.0
+				],
+				[
+					3.0,
+					16.0
+				],
+				[
+					6.0,
+					16.0
+				],
+				[
+					6.0,
+					17.0
+				],
+				[
+					9.0,
+					17.0
+				],
+				[
+					9.0,
+					16.0
+				],
+				[
+					10.0,
+					16.0
+				],
+				[
+					10.0,
+					15.0
+				],
+				[
+					13.0,
+					15.0
+				],
+				[
+					13.0,
+					16.0
+				],
+				[
+					14.0,
+					16.0
+				],
+				[
+					14.0,
+					17.0
+				],
+				[
+					17.0,
+					17.0
+				],
+				[
+					17.0,
+					16.0
+				],
+				[
+					19.0,
+					16.0
+				],
+				[
+					19.0,
+					15.0
+				],
+				[
+					24.0,
+					15.0
+				],
+				[
+					24.0,
+					14.0
+				],
+				[
+					26.0,
+					14.0
+				],
+				[
+					26.0,
+					13.0
+				],
+				[
+					30.0,
+					13.0
+				]
+			]
+		},
+		{
+			"kind": "creek",
+			"points": [
+				[
+					0.0,
+					17.0
+				],
+				[
+					3.0,
+					17.0
+				],
+				[
+					3.0,
+					16.0
+				],
+				[
+					5.0,
+					16.0
+				],
+				[
+					5.0,
+					12.0
+				],
+				[
+					6.0,
+					12.0
+				],
+				[
+					6.0,
+					11.0
+				],
+				[
+					7.0,
+					11.0
+				],
+				[
+					7.0,
+					10.0
+				],
+				[
+					9.0,
+					10.0
+				],
+				[
+					9.0,
+					11.0
+				],
+				[
+					11.0,
+					11.0
+				],
+				[
+					11.0,
+					12.0
+				],
+				[
+					14.0,
+					12.0
+				],
+				[
+					14.0,
+					11.0
+				],
+				[
+					17.0,
+					11.0
+				],
+				[
+					17.0,
+					10.0
+				],
+				[
+					18.0,
+					10.0
+				],
+				[
+					18.0,
+					9.0
+				],
+				[
+					23.0,
+					9.0
+				],
+				[
+					23.0,
+					7.0
+				],
+				[
+					24.0,
+					7.0
+				],
+				[
+					24.0,
+					6.0
+				],
+				[
+					30.0,
+					6.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					8.0,
+					0.0
+				],
+				[
+					8.0,
+					1.0
+				],
+				[
+					7.0,
+					1.0
+				],
+				[
+					7.0,
+					3.0
+				],
+				[
+					6.0,
+					3.0
+				],
+				[
+					6.0,
+					6.0
+				],
+				[
+					0.0,
+					6.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					26.0,
+					13.0
+				],
+				[
+					30.0,
+					13.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					26.0,
+					13.0
+				],
+				[
+					26.0,
+					14.0
+				],
+				[
+					24.0,
+					14.0
+				],
+				[
+					24.0,
+					15.0
+				],
+				[
+					22.0,
+					15.0
+				],
+				[
+					22.0,
+					20.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					24.0,
+					6.0
+				],
+				[
+					30.0,
+					6.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					24.0,
+					6.0
+				],
+				[
+					24.0,
+					7.0
+				],
+				[
+					23.0,
+					7.0
+				],
+				[
+					23.0,
+					10.0
+				],
+				[
+					24.0,
+					10.0
+				],
+				[
+					24.0,
+					11.0
+				],
+				[
+					25.0,
+					11.0
+				],
+				[
+					25.0,
+					12.0
+				],
+				[
+					26.0,
+					12.0
+				],
+				[
+					26.0,
+					13.0
+				],
+				[
+					30.0,
+					13.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					18.0,
+					0.0
+				],
+				[
+					18.0,
+					3.0
+				],
+				[
+					20.0,
+					3.0
+				],
+				[
+					20.0,
+					4.0
+				],
+				[
+					23.0,
+					4.0
+				],
+				[
+					23.0,
+					3.0
+				],
+				[
+					24.0,
+					3.0
+				],
+				[
+					24.0,
+					2.0
+				],
+				[
+					25.0,
+					2.0
+				],
+				[
+					25.0,
+					0.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					26.0,
+					13.0
+				],
+				[
+					30.0,
+					13.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					26.0,
+					13.0
+				],
+				[
+					26.0,
+					14.0
+				],
+				[
+					24.0,
+					14.0
+				],
+				[
+					24.0,
+					15.0
+				],
+				[
+					22.0,
+					15.0
+				],
+				[
+					22.0,
+					20.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					14.0,
+					11.0
+				],
+				[
+					17.0,
+					11.0
+				],
+				[
+					17.0,
+					12.0
+				],
+				[
+					18.0,
+					12.0
+				],
+				[
+					18.0,
+					13.0
+				],
+				[
+					19.0,
+					13.0
+				],
+				[
+					19.0,
+					14.0
+				],
+				[
+					20.0,
+					14.0
+				],
+				[
+					20.0,
+					15.0
+				],
+				[
+					19.0,
+					15.0
+				],
+				[
+					19.0,
+					16.0
+				],
+				[
+					17.0,
+					16.0
+				],
+				[
+					17.0,
+					17.0
+				],
+				[
+					14.0,
+					17.0
+				],
+				[
+					14.0,
+					16.0
+				],
+				[
+					13.0,
+					16.0
+				],
+				[
+					13.0,
+					15.0
+				],
+				[
+					12.0,
+					15.0
+				],
+				[
+					12.0,
+					12.0
+				],
+				[
+					14.0,
+					12.0
+				],
+				[
+					14.0,
+					11.0
+				]
+			]
+		}
+	],
+	"props": [
+		{
+			"flip": false,
+			"id": "farmhouse",
+			"x": 86.0,
+			"y": 171.0
+		},
+		{
+			"flip": false,
+			"id": "barn_grey",
+			"x": 86.0,
+			"y": 195.0
+		},
+		{
+			"flip": false,
+			"id": "corral",
+			"x": 115.0,
+			"y": 174.0
+		},
+		{
+			"flip": false,
+			"id": "windmill",
+			"x": 96.0,
+			"y": 154.0
+		},
+		{
+			"flip": false,
+			"id": "stock_tank",
+			"x": 109.0,
+			"y": 155.0
+		},
+		{
+			"flip": false,
+			"id": "pond_small",
+			"x": 13.0,
+			"y": 192.0
+		},
+		{
+			"flip": false,
+			"id": "reeds",
+			"x": 26.0,
+			"y": 169.0
+		},
+		{
+			"flip": false,
+			"id": "oak_tree",
+			"x": 26.0,
+			"y": 196.0
+		},
+		{
+			"flip": false,
+			"id": "pond_small",
+			"x": 315.0,
+			"y": 193.0
+		},
+		{
+			"flip": true,
+			"id": "reeds",
+			"x": 339.0,
+			"y": 172.0
+		},
+		{
+			"flip": true,
+			"id": "oak_tree",
+			"x": 304.0,
+			"y": 204.0
+		},
+		{
+			"flip": false,
+			"id": "cattle_herd",
+			"x": 28.0,
+			"y": 85.0
+		},
+		{
+			"flip": false,
+			"id": "cattle_herd",
+			"x": 180.0,
+			"y": 183.0
+		},
+		{
+			"flip": true,
+			"id": "cattle_herd",
+			"x": 192.0,
+			"y": 68.0
+		},
+		{
+			"flip": true,
+			"id": "cattle_herd",
+			"x": 279.0,
+			"y": 206.0
+		},
+		{
+			"flip": false,
+			"id": "cattle_herd",
+			"x": 91.0,
+			"y": 56.0
+		},
+		{
+			"flip": true,
+			"id": "longhorn",
+			"x": 159.0,
+			"y": 202.0
+		},
+		{
+			"flip": false,
+			"id": "longhorn",
+			"x": 234.0,
+			"y": 142.0
+		},
+		{
+			"flip": true,
+			"id": "longhorn",
+			"x": 191.0,
+			"y": 6.0
+		},
+		{
+			"flip": false,
+			"id": "longhorn",
+			"x": 160.0,
+			"y": 12.0
+		},
+		{
+			"flip": false,
+			"id": "longhorn",
+			"x": 302.0,
+			"y": 223.0
+		},
+		{
+			"flip": false,
+			"id": "longhorn",
+			"x": 43.0,
+			"y": 27.0
+		},
+		{
+			"flip": true,
+			"id": "oak_tree",
+			"x": 139.0,
+			"y": 191.0
+		},
+		{
+			"flip": false,
+			"id": "oak_tree",
+			"x": 286.0,
+			"y": 154.0
+		},
+		{
+			"flip": true,
+			"id": "oak_tree",
+			"x": 105.0,
+			"y": 23.0
+		},
+		{
+			"flip": true,
+			"id": "oak_tree",
+			"x": 315.0,
+			"y": 104.0
+		},
+		{
+			"flip": false,
+			"id": "oak_tree",
+			"x": 203.0,
+			"y": 157.0
+		},
+		{
+			"flip": false,
+			"id": "oak_tree",
+			"x": 260.0,
+			"y": 92.0
+		},
+		{
+			"flip": true,
+			"id": "mesquite",
+			"x": 237.0,
+			"y": 83.0
+		},
+		{
+			"flip": true,
+			"id": "mesquite",
+			"x": 328.0,
+			"y": 138.0
+		},
+		{
+			"flip": false,
+			"id": "mesquite",
+			"x": 241.0,
+			"y": 152.0
+		},
+		{
+			"flip": true,
+			"id": "mesquite",
+			"x": 222.0,
+			"y": 88.0
+		},
+		{
+			"flip": false,
+			"id": "hay_bales",
+			"x": 61.0,
+			"y": 214.0
+		},
+		{
+			"flip": false,
+			"id": "hay_bales",
+			"x": 333.0,
+			"y": 63.0
+		}
+	],
+	"theme": "ranch"
+}

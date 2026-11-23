@@ -1,0 +1,742 @@
+{
+	"default_field": "pasture",
+	"field_grid": {
+		"cell": 4,
+		"ids": [
+			"pasture",
+			"caliche",
+			"scrub",
+			"cotton",
+			"marsh",
+			"pine_floor",
+			"wheat",
+			"red_clay"
+		],
+		"rows": [
+			"BBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAEEEEEEEECCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAEEEEEEEECCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAEEEEEEEECCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBBBBBBBBBCCAAAAAEEEEEEEEEEEEECCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBBBBBBBBBCCAAAAAEEEEEEEEEEEEECCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDEEEEEEEEEEEEEEEEEE",
+			"BBBBBBBBBBBBCCCCCCCCCCCCCEEEEEEEEEEEEEEEEECCCCCCCCCCCCCFFFFFFFFFFGGGGGGGGGGGGGGGEEEEEEEEEE",
+			"BBBBBBBBBBBBCCCCCCCCCCCCCEEEEEEEEEEEEEEEEECCCCCCCCCCCCCFFFFFFFFFFGGGGGGGGGGGGGGGEEEEEEEEEE",
+			"BBBBBBBBBBBBCCCCCCCCCCCCCEEEEEEEEEEEEEEEEECCCCCCCCCCCCCFFFFFFFFFFGGGGGGGGGGGGGGGEEEEEEEEEE",
+			"GGGGGGGCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEEEEEAAAAAAAAAAFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGCCCCC",
+			"GGGGGGGCCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEEEEEAAAAAAAAAAFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGCCCCC",
+			"GGGGGGGGGGCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEAAAAAAAAAAAAFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGCCCCCCCC",
+			"GGGGGGGGGGCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEAAAAAAAAAAAAFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGCCCCCCCC",
+			"GGGGGGGGGGCCCCCCCCCCCCCCCCCEEEEEEEEEEEEEAAAAAAAAAAAAFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGCCCCCCCC",
+			"GGGGGGGGGGGGCCCCCCCCCCCCCCCEEEEEEEEEEAAAAAAAAAAAAAAAFFFFFFFFFFFFFFFGGGGGGGGGGGGGCCCCCCCCCC",
+			"GGGGGGGGGGGGCCCCCCCCCCCCCCCEEEEEEEEEEAAAAAAAAAAAAAAAFFFFFFFFFFFFFFFGGGGGGGGGGGGGCCCCCCCCCC",
+			"GGGGGGGGGGGGGGGCCCCCCCCCCCCEEEEEEEEEEAAAAAAAAAAAAAAAFFFFFFFFFFFFFFFGGGGGGGGGGCCCCCCCCCCCCC",
+			"GGGGGGGGGGGGGGGCCCCCCCCCCCCEEEEEEEEEEAAAAAAAAAAAAAAAFFFFFFFFFFFFFFFGGGGGGGGGGCCCCCCCCCCCCC",
+			"GGGGGGGGGGGGGGGCCCCCCCCCCCCEEEEEEEEEEAAAAAAAAAAAAAAAFFFFFFFFFFFFFFFGGGGGGGGGGCCCCCCCCCCCCC",
+			"GGGGGGGGGGGGGGGGGCCCAAAAAAAAAAEEEEEAAAAAAAAAAAAAAAAAFFFFFFFFFFFFFFFGGGGGGGGCCCCCCCCCCCCCCC",
+			"GGGGGGGGGGGGGGGGGCCCAAAAAAAAAAEEEEEAAAAAAAAAAAAAAAAAFFFFFFFFFFFFFFFGGGGGGGGCCCCCCCCCCCCCCC",
+			"GGGGGGGGGGGGGGGAAAAAAAAAAAAAAACCCCCCCAAAAAAAAAAHHHHHHHHBBBBBBBBBBBBBBBGGCCCCCCCCCCCCCCCCCC",
+			"GGGGGGGGGGGGGGGAAAAAAAAAAAAAAACCCCCCCAAAAAAAAAAHHHHHHHHBBBBBBBBBBBBBBBGGCCCCCCCCCCCCCCCCCC",
+			"GGGGGGGGGGGGGGGAAAAAAAAAAAAAAACCCCCCCAAAAAAAAAAHHHHHHHHBBBBBBBBBBBBBBBGGCCCCCCCCCCCCCCCCCC",
+			"GGGGGGGGGGGGAAAAAAAAAAAAAAAAAACCCCCCCCCCHHHHHHHHHHHHHHHBBBBBBBBBBBBBBBFFFFFFFCCCCCCCCCCCCC",
+			"GGGGGGGGGGGGAAAAAAAAAAAAAAAAAACCCCCCCCCCHHHHHHHHHHHHHHHBBBBBBBBBBBBBBBFFFFFFFCCCCCCCCCCCCC",
+			"GGGGGGGGGGGGAAAAAAAAAAAAAAACCCCCCCCCCCCCHHHHHHHHHHHHHHHBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFCCC",
+			"GGGGGGGGGGGGAAAAAAAAAAAAAAACCCCCCCCCCCCCHHHHHHHHHHHHHHHBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFCCC",
+			"GGGGGGGGGGGGAAAAAAAAAAAAAAACCCCCCCCCCCCCHHHHHHHHHHHHHHHBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFCCC",
+			"GGGGGGGGGGAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCHHHHHHHHHHHHHBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF",
+			"GGGGGGGGGGAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCHHHHHHHHHHHHHBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF",
+			"DDDDDDDDDDAAAAAAAAAAAAAAAHHCCCCCCCCCCCCCCCHHHHHHHHHHHHHBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF",
+			"DDDDDDDDDDAAAAAAAAAAAAAAAHHCCCCCCCCCCCCCCCHHHHHHHHHHHHHBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF",
+			"DDDDDDDDDDAAAAAAAAAAAAAAAHHCCCCCCCCCCCCCCCHHHHHHHHHHHHHBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF",
+			"DDDDDDDDDDDDDDDDDHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHBBBBBBBBBBBBEEEFFFFFFFFFFFFFFFFFFFF",
+			"DDDDDDDDDDDDDDDDDHHHHHHHHHHHHHCCCCCCCCCCCCHHHHHHHHHHHHHBBBBBBBBBBBBEEEFFFFFFFFFFFFFFFFFFFF",
+			"DDDDDDDDDDDDDDDDDHHHHHHHHHHHHHHHCCCEEEEEEEEEECCCCCCCCCCCCCCCCCBBBEEEEEEEEEEEEFFFFFGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDHHHHHHHHHHHHHHHCCCEEEEEEEEEECCCCCCCCCCCCCCCCCBBBEEEEEEEEEEEEFFFFFGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDHHHHHHHHHHHHHHHCCCEEEEEEEEEECCCCCCCCCCCCCCCCCBBBEEEEEEEEEEEEFFFFFGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDHHHHHHHHHHHHHHHEEEEEEEEEEEEECCCCCCCCCCCCCCCCCEEEEEEEEEEEEEEEEEEGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDHHHHHHHHHHHHHHHEEEEEEEEEEEEECCCCCCCCCCCCCCCCCEEEEEEEEEEEEEEEEEEGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDHHHHHHHHHHHHHEEEEEEEEEEEEEEECCCCCCCCCCCCCCCCCEEEEEEEEEEEEEEEEEEGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDHHHHHHHHHHHHHEEEEEEEEEEEEEEECCCCCCCCCCCCCCCCCEEEEEEEEEEEEEEEEEEGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDHHHHHHHHHHHHHEEEEEEEEEEEEEEECCCCCCCCCCCCCCCCCEEEEEEEEEEEEEEEEEEGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDDDDHHHHHHHHHHEEEEEEEEEEEEEEECCCCCCCCCCCCCCCFFFFFEEEEEEEEEEEEEEEGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDDDDHHHHHHHHHHEEEEEEEEEEEEEEECCCCCCCCCCCCCCCFFFFFEEEEEEEEEEEEEEEGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDDDDHHHHHHHHHHEEEEEEEEEEEEEEECCCCCCCCCCCCFFFFFFFFFFEEEEEEEEEEEEEGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDDDDHHHHHHHHHHEEEEEEEEEEEEEEECCCCCCCCCCCCFFFFFFFFFFEEEEEEEEEEEEEGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDDDDHHHHHHHHHHEEEEEEEEEEEEEEECCCCCCCCCCCCFFFFFFFFFFEEEEEEEEEEEEEGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDDDDHHHHHHHEEEEEEEEEEEEEEEEEECCCCCCCCCCFFFFFFFFFFFFFFFEEEEEEEGGGGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDDDDHHHHHHHEEEEEEEEEEEEEEEEEECCCCCCCCCCFFFFFFFFFFFFFFFEEEEEEEGGGGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDDDDDDHHHHHEEEEEEEEEEEEEEEEEEEECCCFFFFFFFFFFFFFFFFFFFFFFEEEEEGGGGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDDDDDDHHHHHEEEEEEEEEEEEEEEEEEEECCCFFFFFFFFFFFFFFFFFFFFFFEEEEEGGGGGGGGGGGGG",
+			"DDDDDDDDDDDDDDDDDDDDDDHHHHHEEEEEEEEEEEEEEEEEEEECCCFFFFFFFFFFFFFFFFFFFFFFEEEEEGGGGGGGGGGGGG"
+		]
+	},
+	"lines": [
+		{
+			"kind": "railroad",
+			"points": [
+				[
+					0.0,
+					7.0
+				],
+				[
+					36.0,
+					7.0
+				]
+			]
+		},
+		{
+			"kind": "dirt_road",
+			"points": [
+				[
+					0.0,
+					15.0
+				],
+				[
+					4.0,
+					15.0
+				],
+				[
+					4.0,
+					16.0
+				],
+				[
+					10.0,
+					16.0
+				],
+				[
+					10.0,
+					15.0
+				],
+				[
+					11.0,
+					15.0
+				],
+				[
+					11.0,
+					13.0
+				],
+				[
+					12.0,
+					13.0
+				],
+				[
+					12.0,
+					11.0
+				],
+				[
+					15.0,
+					11.0
+				],
+				[
+					15.0,
+					12.0
+				],
+				[
+					19.0,
+					12.0
+				],
+				[
+					19.0,
+					11.0
+				],
+				[
+					28.0,
+					11.0
+				],
+				[
+					28.0,
+					12.0
+				],
+				[
+					31.0,
+					12.0
+				],
+				[
+					31.0,
+					13.0
+				],
+				[
+					35.0,
+					13.0
+				],
+				[
+					35.0,
+					14.0
+				],
+				[
+					36.0,
+					14.0
+				]
+			]
+		},
+		{
+			"kind": "dirt_road",
+			"points": [
+				[
+					16.0,
+					0.0
+				],
+				[
+					16.0,
+					1.0
+				],
+				[
+					15.0,
+					1.0
+				],
+				[
+					15.0,
+					3.0
+				],
+				[
+					16.0,
+					3.0
+				],
+				[
+					16.0,
+					5.0
+				],
+				[
+					17.0,
+					5.0
+				],
+				[
+					17.0,
+					6.0
+				],
+				[
+					21.0,
+					6.0
+				],
+				[
+					21.0,
+					11.0
+				],
+				[
+					22.0,
+					11.0
+				],
+				[
+					22.0,
+					17.0
+				],
+				[
+					18.0,
+					17.0
+				],
+				[
+					18.0,
+					23.0
+				],
+				[
+					19.0,
+					23.0
+				],
+				[
+					19.0,
+					24.0
+				]
+			]
+		},
+		{
+			"kind": "creek",
+			"points": [
+				[
+					0.0,
+					15.0
+				],
+				[
+					4.0,
+					15.0
+				],
+				[
+					4.0,
+					14.0
+				],
+				[
+					5.0,
+					14.0
+				],
+				[
+					5.0,
+					12.0
+				],
+				[
+					6.0,
+					12.0
+				],
+				[
+					6.0,
+					11.0
+				],
+				[
+					8.0,
+					11.0
+				],
+				[
+					8.0,
+					10.0
+				],
+				[
+					12.0,
+					10.0
+				],
+				[
+					12.0,
+					11.0
+				],
+				[
+					14.0,
+					11.0
+				],
+				[
+					14.0,
+					10.0
+				],
+				[
+					15.0,
+					10.0
+				],
+				[
+					15.0,
+					8.0
+				],
+				[
+					16.0,
+					8.0
+				],
+				[
+					16.0,
+					7.0
+				],
+				[
+					17.0,
+					7.0
+				],
+				[
+					17.0,
+					6.0
+				],
+				[
+					22.0,
+					6.0
+				],
+				[
+					22.0,
+					5.0
+				],
+				[
+					32.0,
+					5.0
+				],
+				[
+					32.0,
+					6.0
+				],
+				[
+					36.0,
+					6.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					34.0,
+					6.0
+				],
+				[
+					36.0,
+					6.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					34.0,
+					6.0
+				],
+				[
+					34.0,
+					7.0
+				],
+				[
+					33.0,
+					7.0
+				],
+				[
+					33.0,
+					8.0
+				],
+				[
+					32.0,
+					8.0
+				],
+				[
+					32.0,
+					9.0
+				],
+				[
+					31.0,
+					9.0
+				],
+				[
+					31.0,
+					10.0
+				],
+				[
+					30.0,
+					10.0
+				],
+				[
+					30.0,
+					11.0
+				],
+				[
+					29.0,
+					11.0
+				],
+				[
+					29.0,
+					12.0
+				],
+				[
+					31.0,
+					12.0
+				],
+				[
+					31.0,
+					13.0
+				],
+				[
+					35.0,
+					13.0
+				],
+				[
+					35.0,
+					14.0
+				],
+				[
+					36.0,
+					14.0
+				]
+			]
+		},
+		{
+			"kind": "fence",
+			"points": [
+				[
+					22.0,
+					5.0
+				],
+				[
+					26.0,
+					5.0
+				],
+				[
+					26.0,
+					8.0
+				],
+				[
+					27.0,
+					8.0
+				],
+				[
+					27.0,
+					11.0
+				],
+				[
+					21.0,
+					11.0
+				],
+				[
+					21.0,
+					6.0
+				],
+				[
+					22.0,
+					6.0
+				],
+				[
+					22.0,
+					5.0
+				]
+			]
+		}
+	],
+	"props": [
+		{
+			"flip": false,
+			"id": "farmhouse",
+			"x": 72.0,
+			"y": 89.0
+		},
+		{
+			"flip": false,
+			"id": "barn_red",
+			"x": 52.0,
+			"y": 100.0
+		},
+		{
+			"flip": false,
+			"id": "silo",
+			"x": 79.0,
+			"y": 65.0
+		},
+		{
+			"flip": false,
+			"id": "windmill",
+			"x": 98.0,
+			"y": 91.0
+		},
+		{
+			"flip": false,
+			"id": "haystack",
+			"x": 84.0,
+			"y": 91.0
+		},
+		{
+			"flip": false,
+			"id": "farmhouse",
+			"x": 261.0,
+			"y": 28.0
+		},
+		{
+			"flip": false,
+			"id": "barn_grey",
+			"x": 274.0,
+			"y": 39.0
+		},
+		{
+			"flip": false,
+			"id": "windmill",
+			"x": 253.0,
+			"y": 44.0
+		},
+		{
+			"flip": false,
+			"id": "stock_tank",
+			"x": 235.0,
+			"y": 30.0
+		},
+		{
+			"flip": false,
+			"id": "horses",
+			"x": 247.0,
+			"y": 31.0
+		},
+		{
+			"flip": false,
+			"id": "sawmill",
+			"x": 233.0,
+			"y": 199.0
+		},
+		{
+			"flip": false,
+			"id": "log_pile",
+			"x": 236.0,
+			"y": 180.0
+		},
+		{
+			"flip": false,
+			"id": "log_pile",
+			"x": 216.0,
+			"y": 182.0
+		},
+		{
+			"flip": false,
+			"id": "stumps",
+			"x": 248.0,
+			"y": 220.0
+		},
+		{
+			"flip": false,
+			"id": "tent_camp",
+			"x": 26.0,
+			"y": 129.0
+		},
+		{
+			"flip": false,
+			"id": "pipe_rack",
+			"x": 25.0,
+			"y": 108.0
+		},
+		{
+			"flip": false,
+			"id": "storage_tank",
+			"x": 45.0,
+			"y": 113.0
+		},
+		{
+			"flip": true,
+			"id": "pickup_truck",
+			"x": 21.0,
+			"y": 145.0
+		},
+		{
+			"flip": false,
+			"id": "bayou_inlet",
+			"x": 29.0,
+			"y": 221.0
+		},
+		{
+			"flip": false,
+			"id": "shrimp_boat",
+			"x": 35.0,
+			"y": 237.0
+		},
+		{
+			"flip": false,
+			"id": "fish_camp",
+			"x": 7.0,
+			"y": 223.0
+		},
+		{
+			"flip": false,
+			"id": "dock",
+			"x": 57.0,
+			"y": 237.0
+		},
+		{
+			"flip": false,
+			"id": "tank_farm",
+			"x": 13.0,
+			"y": 203.0
+		},
+		{
+			"flip": false,
+			"id": "storage_tank",
+			"x": 24.0,
+			"y": 180.0
+		},
+		{
+			"flip": false,
+			"id": "pump_station",
+			"x": 43.0,
+			"y": 179.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 289.0,
+			"y": 217.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 336.0,
+			"y": 112.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 354.0,
+			"y": 154.0
+		},
+		{
+			"flip": false,
+			"id": "pine_tree",
+			"x": 263.0,
+			"y": 33.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 299.0,
+			"y": 29.0
+		},
+		{
+			"flip": false,
+			"id": "mesquite",
+			"x": 66.0,
+			"y": 175.0
+		},
+		{
+			"flip": false,
+			"id": "mesquite",
+			"x": 124.0,
+			"y": 239.0
+		},
+		{
+			"flip": true,
+			"id": "mesquite",
+			"x": 321.0,
+			"y": 238.0
+		},
+		{
+			"flip": false,
+			"id": "mesquite",
+			"x": 83.0,
+			"y": 51.0
+		},
+		{
+			"flip": false,
+			"id": "mesquite",
+			"x": 84.0,
+			"y": 123.0
+		},
+		{
+			"flip": true,
+			"id": "cattle_herd",
+			"x": 153.0,
+			"y": 152.0
+		},
+		{
+			"flip": true,
+			"id": "cattle_herd",
+			"x": 277.0,
+			"y": 179.0
+		},
+		{
+			"flip": false,
+			"id": "palm_tree",
+			"x": 114.0,
+			"y": 184.0
+		},
+		{
+			"flip": false,
+			"id": "palm_tree",
+			"x": 150.0,
+			"y": 157.0
+		},
+		{
+			"flip": true,
+			"id": "palm_tree",
+			"x": 122.0,
+			"y": 177.0
+		},
+		{
+			"flip": false,
+			"id": "oak_tree",
+			"x": 305.0,
+			"y": 211.0
+		},
+		{
+			"flip": true,
+			"id": "oak_tree",
+			"x": 218.0,
+			"y": 193.0
+		},
+		{
+			"flip": true,
+			"id": "oak_tree",
+			"x": 17.0,
+			"y": 228.0
+		},
+		{
+			"flip": true,
+			"id": "oak_tree",
+			"x": 133.0,
+			"y": 97.0
+		}
+	],
+	"theme": "quilt"
+}

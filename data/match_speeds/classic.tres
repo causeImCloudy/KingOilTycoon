@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MatchSpeed" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/match_speed.gd" id="1_speed"]
+
+[resource]
+script = ExtResource("1_speed")
+id = "classic"
+display_name = "Long"
+description = "A long game. About 3-4 hours."
+bank_size = 4000000
+starting_cash = 80000
+income_mult = 1.0
+drill_cost_mult = 1.0
+bonus_drills = 0
+pipeline_cost = 10000
+royalty_per_well = 300
+target_turns = 420
+turn_timer_sec = 0
+anim_speed = 1.0

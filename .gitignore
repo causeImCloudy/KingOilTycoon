@@ -13,3 +13,8 @@ Thumbs.db
 
 # Reference material (separate repo, includes a Python venv)
 /REFERENCE/
+
+# Screenshot-tour output and Godot's locked DLL copies
+/[0-9][0-9]_*.png
+/[0-9][0-9]_*.png.import
+addons/godotsteam/**/~*

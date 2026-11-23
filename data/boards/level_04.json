@@ -1,0 +1,630 @@
+{
+	"default_field": "town_lot",
+	"field_grid": {
+		"cell": 4,
+		"ids": [
+			"town_lot",
+			"mud",
+			"dirt"
+		],
+		"rows": [
+			"AAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBCCCAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBCCCAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBCCCAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBCCCCCCAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBCCCCCCAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBCCCCCCAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAABBBBBBBBBBBBBBBBBBCCCCCCCCCAAAAAAAAAAAAAAACCCCCCCCCCCCCCCBBBBBBAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAABBBBBBBBBBBBBBBBBBCCCCCCCCCAAAAAAAAAAAAAAACCCCCCCCCCCCCCCBBBBBBAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAABBBBBBBBBBBBBBBBBBCCCCCCCCCAAAAAAAAAAAAAAACCCCCCCCCCCCCCCBBBBBBAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAABBBBBBBBBBBBBBBCCCCCCCCCCCCCCCAAAAAAAAAAAAAAACCCCCCCCCBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAABBBBBBBBBBBBBBBCCCCCCCCCCCCCCCAAAAAAAAAAAAAAACCCCCCCCCBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAABBBBBBBBBBBBBBBCCCCCCCCCCCCCCCAAAAAAAAAAAAAAACCCCCCCCCBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAABBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBAAAAAA",
+			"AAAAAAAAAAAAAAABBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBAAAAAA",
+			"AAAAAAAAAAAAAAABBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBAAAAAA",
+			"AAAAAACCCCCCCCCCCCBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBAAA",
+			"AAAAAACCCCCCCCCCCCBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBAAA",
+			"AAAAAACCCCCCCCCCCCBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBAAA",
+			"CCCCCCCCCCCCCCCCCCAAAAAAAAACCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCCCCCCCAAAAAAAAACCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCCCCCCCAAAAAAAAACCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAACCCCCCCCCCCCAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBCCCCCC",
+			"CCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAACCCCCCCCCCCCAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBCCCCCC",
+			"CCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAACCCCCCCCCCCCAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBCCCCCC",
+			"CCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAACCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAACCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAACCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAACCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAACCCCCCCCCCCCCCC",
+			"CCCCCCCCCCCCBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAACCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCCCCCCC",
+			"CCCBBBBBBBBBBBBBBBBBBBBBBBBAAACCCCCCCCCCCCBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAACCCCCCCCCCCC",
+			"CCCBBBBBBBBBBBBBBBBBBBBBBBBAAACCCCCCCCCCCCBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAACCCCCCCCCCCC",
+			"CCCBBBBBBBBBBBBBBBBBBBBBBBBAAACCCCCCCCCCCCBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAACCCCCCCCCCCC",
+			"CCCCCCBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAACCCCCCCCCCCC",
+			"CCCCCCBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAACCCCCCCCCCCC",
+			"CCCCCCBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAACCCCCCCCCCCC",
+			"CCCCCCCCCBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBB",
+			"CCCCCCCCCBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBB",
+			"CCCCCCCCCBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB",
+			"CCCCCCCCCBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB"
+		]
+	},
+	"lines": [
+		{
+			"kind": "railroad",
+			"points": [
+				[
+					0.0,
+					7.0
+				],
+				[
+					30.0,
+					7.0
+				]
+			]
+		},
+		{
+			"kind": "dirt_road",
+			"points": [
+				[
+					0.0,
+					11.0
+				],
+				[
+					4.0,
+					11.0
+				],
+				[
+					4.0,
+					10.0
+				],
+				[
+					5.0,
+					10.0
+				],
+				[
+					5.0,
+					9.0
+				],
+				[
+					6.0,
+					9.0
+				],
+				[
+					6.0,
+					6.0
+				],
+				[
+					9.0,
+					6.0
+				],
+				[
+					9.0,
+					7.0
+				],
+				[
+					11.0,
+					7.0
+				],
+				[
+					11.0,
+					8.0
+				],
+				[
+					13.0,
+					8.0
+				],
+				[
+					13.0,
+					9.0
+				],
+				[
+					14.0,
+					9.0
+				],
+				[
+					14.0,
+					8.0
+				],
+				[
+					21.0,
+					8.0
+				],
+				[
+					21.0,
+					9.0
+				],
+				[
+					25.0,
+					9.0
+				],
+				[
+					25.0,
+					8.0
+				],
+				[
+					28.0,
+					8.0
+				],
+				[
+					28.0,
+					7.0
+				],
+				[
+					30.0,
+					7.0
+				]
+			]
+		},
+		{
+			"kind": "dirt_road",
+			"points": [
+				[
+					24.0,
+					0.0
+				],
+				[
+					24.0,
+					2.0
+				],
+				[
+					23.0,
+					2.0
+				],
+				[
+					23.0,
+					3.0
+				],
+				[
+					22.0,
+					3.0
+				],
+				[
+					22.0,
+					4.0
+				],
+				[
+					21.0,
+					4.0
+				],
+				[
+					21.0,
+					5.0
+				],
+				[
+					20.0,
+					5.0
+				],
+				[
+					20.0,
+					8.0
+				],
+				[
+					21.0,
+					8.0
+				],
+				[
+					21.0,
+					11.0
+				],
+				[
+					20.0,
+					11.0
+				],
+				[
+					20.0,
+					14.0
+				],
+				[
+					22.0,
+					14.0
+				],
+				[
+					22.0,
+					15.0
+				],
+				[
+					24.0,
+					15.0
+				],
+				[
+					24.0,
+					20.0
+				]
+			]
+		},
+		{
+			"kind": "dirt_road",
+			"points": [
+				[
+					0.0,
+					12.0
+				],
+				[
+					1.0,
+					12.0
+				],
+				[
+					1.0,
+					13.0
+				],
+				[
+					2.0,
+					13.0
+				],
+				[
+					2.0,
+					14.0
+				],
+				[
+					3.0,
+					14.0
+				],
+				[
+					3.0,
+					15.0
+				],
+				[
+					4.0,
+					15.0
+				],
+				[
+					4.0,
+					16.0
+				],
+				[
+					5.0,
+					16.0
+				],
+				[
+					5.0,
+					15.0
+				],
+				[
+					8.0,
+					15.0
+				],
+				[
+					8.0,
+					14.0
+				],
+				[
+					9.0,
+					14.0
+				],
+				[
+					9.0,
+					13.0
+				],
+				[
+					10.0,
+					13.0
+				],
+				[
+					10.0,
+					12.0
+				],
+				[
+					12.0,
+					12.0
+				],
+				[
+					12.0,
+					11.0
+				],
+				[
+					13.0,
+					11.0
+				],
+				[
+					13.0,
+					12.0
+				],
+				[
+					14.0,
+					12.0
+				],
+				[
+					14.0,
+					13.0
+				],
+				[
+					15.0,
+					13.0
+				],
+				[
+					15.0,
+					14.0
+				],
+				[
+					16.0,
+					14.0
+				],
+				[
+					16.0,
+					15.0
+				],
+				[
+					19.0,
+					15.0
+				],
+				[
+					19.0,
+					14.0
+				],
+				[
+					22.0,
+					14.0
+				],
+				[
+					22.0,
+					15.0
+				],
+				[
+					26.0,
+					15.0
+				],
+				[
+					26.0,
+					14.0
+				],
+				[
+					30.0,
+					14.0
+				]
+			]
+		}
+	],
+	"props": [
+		{
+			"flip": false,
+			"id": "general_store",
+			"x": 222.0,
+			"y": 126.0
+		},
+		{
+			"flip": false,
+			"id": "saloon",
+			"x": 199.0,
+			"y": 126.0
+		},
+		{
+			"flip": false,
+			"id": "house_row",
+			"x": 219.0,
+			"y": 109.0
+		},
+		{
+			"flip": false,
+			"id": "street_lamp",
+			"x": 198.0,
+			"y": 140.0
+		},
+		{
+			"flip": false,
+			"id": "general_store",
+			"x": 88.0,
+			"y": 120.0
+		},
+		{
+			"flip": false,
+			"id": "saloon",
+			"x": 108.0,
+			"y": 118.0
+		},
+		{
+			"flip": false,
+			"id": "house_row",
+			"x": 112.0,
+			"y": 139.0
+		},
+		{
+			"flip": false,
+			"id": "street_lamp",
+			"x": 108.0,
+			"y": 106.0
+		},
+		{
+			"flip": false,
+			"id": "church",
+			"x": 157.0,
+			"y": 216.0
+		},
+		{
+			"flip": false,
+			"id": "oak_tree",
+			"x": 167.0,
+			"y": 231.0
+		},
+		{
+			"flip": false,
+			"id": "rail_depot",
+			"x": 243.0,
+			"y": 31.0
+		},
+		{
+			"flip": false,
+			"id": "water_tower",
+			"x": 223.0,
+			"y": 40.0
+		},
+		{
+			"flip": false,
+			"id": "tent_camp",
+			"x": 199.0,
+			"y": 55.0
+		},
+		{
+			"flip": false,
+			"id": "pipe_rack",
+			"x": 221.0,
+			"y": 56.0
+		},
+		{
+			"flip": false,
+			"id": "storage_tank",
+			"x": 174.0,
+			"y": 42.0
+		},
+		{
+			"flip": true,
+			"id": "pickup_truck",
+			"x": 200.0,
+			"y": 66.0
+		},
+		{
+			"flip": false,
+			"id": "tent_camp",
+			"x": 269.0,
+			"y": 208.0
+		},
+		{
+			"flip": false,
+			"id": "pipe_rack",
+			"x": 240.0,
+			"y": 184.0
+		},
+		{
+			"flip": false,
+			"id": "storage_tank",
+			"x": 275.0,
+			"y": 219.0
+		},
+		{
+			"flip": false,
+			"id": "pickup_truck",
+			"x": 250.0,
+			"y": 232.0
+		},
+		{
+			"flip": false,
+			"id": "tank_farm",
+			"x": 239.0,
+			"y": 211.0
+		},
+		{
+			"flip": false,
+			"id": "storage_tank",
+			"x": 234.0,
+			"y": 226.0
+		},
+		{
+			"flip": false,
+			"id": "pump_station",
+			"x": 268.0,
+			"y": 199.0
+		},
+		{
+			"flip": false,
+			"id": "tent",
+			"x": 147.0,
+			"y": 162.0
+		},
+		{
+			"flip": false,
+			"id": "tent",
+			"x": 130.0,
+			"y": 193.0
+		},
+		{
+			"flip": false,
+			"id": "tent",
+			"x": 323.0,
+			"y": 207.0
+		},
+		{
+			"flip": false,
+			"id": "tent",
+			"x": 283.0,
+			"y": 97.0
+		},
+		{
+			"flip": false,
+			"id": "tent",
+			"x": 143.0,
+			"y": 47.0
+		},
+		{
+			"flip": false,
+			"id": "tent",
+			"x": 251.0,
+			"y": 79.0
+		},
+		{
+			"flip": false,
+			"id": "wagon",
+			"x": 93.0,
+			"y": 143.0
+		},
+		{
+			"flip": true,
+			"id": "wagon",
+			"x": 99.0,
+			"y": 204.0
+		},
+		{
+			"flip": true,
+			"id": "wagon",
+			"x": 130.0,
+			"y": 76.0
+		},
+		{
+			"flip": false,
+			"id": "pickup_truck",
+			"x": 322.0,
+			"y": 21.0
+		},
+		{
+			"flip": true,
+			"id": "pickup_truck",
+			"x": 320.0,
+			"y": 32.0
+		},
+		{
+			"flip": false,
+			"id": "street_lamp",
+			"x": 314.0,
+			"y": 76.0
+		},
+		{
+			"flip": false,
+			"id": "street_lamp",
+			"x": 2.0,
+			"y": 28.0
+		},
+		{
+			"flip": false,
+			"id": "street_lamp",
+			"x": 298.0,
+			"y": 75.0
+		},
+		{
+			"flip": false,
+			"id": "street_lamp",
+			"x": 114.0,
+			"y": 58.0
+		}
+	],
+	"theme": "boomtown"
+}

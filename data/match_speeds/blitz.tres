@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MatchSpeed" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/match_speed.gd" id="1_speed"]
+
+[resource]
+script = ExtResource("1_speed")
+id = "blitz"
+display_name = "Blitz"
+description = "Gushers everywhere and a small bank. About 30 minutes."
+bank_size = 340000
+starting_cash = 50000
+income_mult = 2.0
+drill_cost_mult = 0.75
+bonus_drills = 0
+pipeline_cost = 6000
+royalty_per_well = 1400
+target_turns = 72
+turn_timer_sec = 40
+anim_speed = 2.0

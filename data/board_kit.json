@@ -1,0 +1,2493 @@
+{
+	"note": "Board decoration kit. Fields are 32x32 seamless tiles; lines are a 16x8 straight piece, an 8x8 corner and an 8x8 crossing; props have a fixed canvas size, anchored at the bottom center, with a ground footprint used to keep drill sites clear. Used by scripts/ui/board_decor.gd, the map editor and tools/generate_placeholders.gd.",
+	"fields": {
+		"dirt": {
+			"name": "Bare dirt",
+			"ph": "#b98a57",
+			"pattern": "speckle",
+			"desc": "Packed tan dirt with a few pebbles and darker specks. The plain default; keep it calm."
+		},
+		"plowed_h": {
+			"name": "Plowed rows (east-west)",
+			"ph": "#8a6239",
+			"pattern": "rows_h",
+			"desc": "Freshly plowed field: dark brown furrows running left to right, 4 px apart, with lighter ridges between."
+		},
+		"plowed_v": {
+			"name": "Plowed rows (north-south)",
+			"ph": "#8a6239",
+			"pattern": "rows_v",
+			"desc": "Same as plowed_h but the furrows run top to bottom (draw it separately; don't just rotate, so the light still comes from the top-left)."
+		},
+		"wheat": {
+			"name": "Wheat",
+			"ph": "#d9b85c",
+			"pattern": "rows_h",
+			"desc": "Ripe wheat seen from above: golden with soft rows and small darker seed-head flecks."
+		},
+		"cotton": {
+			"name": "Cotton",
+			"ph": "#8f9a5a",
+			"pattern": "dots",
+			"desc": "Cotton rows: green-brown plants in rows with white cotton boll dots."
+		},
+		"corn": {
+			"name": "Corn",
+			"ph": "#6f8a3c",
+			"pattern": "rows_v",
+			"desc": "Tall corn in north-south rows: deep green leaves with darker gaps between rows."
+		},
+		"pasture": {
+			"name": "Green pasture",
+			"ph": "#7d9a4a",
+			"pattern": "speckle",
+			"desc": "Grazed grass pasture: mid green with lighter and darker clumps, a few tiny flowers."
+		},
+		"hay_meadow": {
+			"name": "Hay meadow",
+			"ph": "#a8a050",
+			"pattern": "stripes_d",
+			"desc": "Mowed hay meadow: yellow-green with faint diagonal mowing stripes."
+		},
+		"dry_grass": {
+			"name": "Dry grass",
+			"ph": "#c9a86a",
+			"pattern": "speckle",
+			"desc": "Sun-dried bunch grass on dirt: straw yellow tufts with tan dirt showing through."
+		},
+		"scrub": {
+			"name": "Scrub land",
+			"ph": "#a88a55",
+			"pattern": "speckle",
+			"desc": "West Texas scrub: tan dirt with scattered small grey-green creosote dots."
+		},
+		"caliche": {
+			"name": "Caliche",
+			"ph": "#e0d0a8",
+			"pattern": "speckle",
+			"desc": "Pale chalky caliche ground, almost cream, with faint cracks and white flecks."
+		},
+		"red_clay": {
+			"name": "Red clay",
+			"ph": "#a8583a",
+			"pattern": "speckle",
+			"desc": "East Texas red clay: rusty red-brown with darker ruts and a few pine needles."
+		},
+		"sand": {
+			"name": "Sand",
+			"ph": "#e0c890",
+			"pattern": "ripples",
+			"desc": "Wind-blown sand with soft ripples running left to right."
+		},
+		"cracked_mud": {
+			"name": "Cracked mud",
+			"ph": "#b0a08a",
+			"pattern": "cracks",
+			"desc": "Dried mud flats cracked into irregular plates (dark lines between pale grey-tan plates)."
+		},
+		"mud": {
+			"name": "Wet mud",
+			"ph": "#6b5440",
+			"pattern": "speckle",
+			"desc": "Rain-soaked mud: dark brown with shiny puddle highlights."
+		},
+		"marsh": {
+			"name": "Marsh grass",
+			"ph": "#7a9a6a",
+			"pattern": "rows_v",
+			"desc": "Coastal marsh: blue-green grass clumps with dark water peeking between them."
+		},
+		"rice_paddy": {
+			"name": "Rice paddy",
+			"ph": "#8ab070",
+			"pattern": "grid",
+			"desc": "Flooded rice field: bright green rows over silvery water, with low levee lines."
+		},
+		"pine_floor": {
+			"name": "Pine clearing",
+			"ph": "#7a6a3a",
+			"pattern": "speckle",
+			"desc": "Forest clearing floor: rust-brown pine needles, small stumps and moss patches."
+		},
+		"orchard": {
+			"name": "Orchard",
+			"ph": "#7d9a4a",
+			"pattern": "trees",
+			"desc": "Pecan or peach orchard: round tree crowns in a neat grid (2x2 trees per tile) on grass."
+		},
+		"town_lot": {
+			"name": "Town lot",
+			"ph": "#a89a80",
+			"pattern": "speckle",
+			"desc": "Packed gravel and dirt of a town lot, wheel ruts, a few weeds."
+		}
+	},
+	"lines": {
+		"dirt_road": {
+			"name": "Dirt road",
+			"ph": "#c8a070",
+			"desc": "Two-track dirt road: tan with darker wheel ruts along both sides."
+		},
+		"shell_road": {
+			"name": "Shell road",
+			"ph": "#e8dcc0",
+			"desc": "Coastal crushed-shell road: near-white with grey flecks."
+		},
+		"paved_road": {
+			"name": "Paved road",
+			"ph": "#5a5650",
+			"desc": "1950s two-lane blacktop: dark grey with a dashed yellow center line."
+		},
+		"railroad": {
+			"name": "Railroad",
+			"ph": "#6a5a4a",
+			"desc": "Railroad track: dark wooden ties every 3 px across, two steel rails along the length, gravel ballast edges."
+		},
+		"creek": {
+			"name": "Creek",
+			"ph": "#5a8aa8",
+			"desc": "Small creek: blue-green water 4 px wide with muddy banks and a pebble or two."
+		},
+		"fence": {
+			"name": "Barbed-wire fence",
+			"ph": "#7a5a3a",
+			"desc": "Fence line: wooden posts every 8 px with thin wire between, on a 1-2 px strip of grass. Mostly transparent."
+		},
+		"tree_line": {
+			"name": "Tree line",
+			"ph": "#4f6a35",
+			"desc": "Windbreak hedge: a row of small round treetops along the line, slightly overlapping."
+		}
+	},
+	"props": {
+		"farmhouse": {
+			"name": "Farmhouse",
+			"cat": "farm",
+			"size": [
+				16,
+				16
+			],
+			"foot": [
+				14,
+				10
+			],
+			"shape": "house",
+			"ph": "#e8dcc0",
+			"layer": "stand",
+			"desc": "Two-story white clapboard farmhouse with a grey shingle roof, porch on the south side, chimney."
+		},
+		"small_house": {
+			"name": "Small house",
+			"cat": "farm",
+			"size": [
+				12,
+				12
+			],
+			"foot": [
+				10,
+				8
+			],
+			"shape": "house",
+			"ph": "#d8c8a0",
+			"layer": "stand",
+			"desc": "One-room tenant house: cream walls, rust tin roof."
+		},
+		"shack": {
+			"name": "Shack",
+			"cat": "farm",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				8,
+				6
+			],
+			"shape": "house",
+			"ph": "#a08060",
+			"layer": "stand",
+			"desc": "Tiny weathered board shack with a slanted tin roof."
+		},
+		"abandoned_house": {
+			"name": "Abandoned house",
+			"cat": "farm",
+			"size": [
+				12,
+				12
+			],
+			"foot": [
+				10,
+				8
+			],
+			"shape": "house",
+			"ph": "#8a7a6a",
+			"layer": "stand",
+			"desc": "Empty farmhouse: grey boards, roof partly caved in, broken windows."
+		},
+		"barn_red": {
+			"name": "Red barn",
+			"cat": "farm",
+			"size": [
+				16,
+				16
+			],
+			"foot": [
+				16,
+				10
+			],
+			"shape": "house",
+			"ph": "#b04030",
+			"layer": "stand",
+			"desc": "Classic red barn with a white-trimmed gambrel roof and big doors facing south."
+		},
+		"barn_grey": {
+			"name": "Weathered barn",
+			"cat": "farm",
+			"size": [
+				16,
+				16
+			],
+			"foot": [
+				16,
+				10
+			],
+			"shape": "house",
+			"ph": "#8a8278",
+			"layer": "stand",
+			"desc": "Old unpainted grey barn, sagging roof."
+		},
+		"silo": {
+			"name": "Silo",
+			"cat": "farm",
+			"size": [
+				8,
+				16
+			],
+			"foot": [
+				8,
+				6
+			],
+			"shape": "tall",
+			"ph": "#c8c8c0",
+			"layer": "stand",
+			"desc": "Concrete or tin grain silo with a domed cap (tall and narrow)."
+		},
+		"grain_bins": {
+			"name": "Grain bins",
+			"cat": "farm",
+			"size": [
+				16,
+				12
+			],
+			"foot": [
+				16,
+				8
+			],
+			"shape": "round",
+			"ph": "#b8b8b0",
+			"layer": "stand",
+			"desc": "Pair of round corrugated-steel grain bins with cone tops."
+		},
+		"windmill": {
+			"name": "Windmill",
+			"cat": "farm",
+			"size": [
+				12,
+				20
+			],
+			"foot": [
+				6,
+				4
+			],
+			"shape": "tall",
+			"ph": "#7a6a5a",
+			"layer": "stand",
+			"desc": "Water-pumping windmill: steel lattice tower, multi-blade wheel and tail vane at the top."
+		},
+		"chicken_coop": {
+			"name": "Chicken coop",
+			"cat": "farm",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				8,
+				6
+			],
+			"shape": "house",
+			"ph": "#c8b080",
+			"layer": "stand",
+			"desc": "Small coop with a wire run and two white chickens."
+		},
+		"outhouse": {
+			"name": "Outhouse",
+			"cat": "farm",
+			"size": [
+				4,
+				8
+			],
+			"foot": [
+				4,
+				4
+			],
+			"shape": "tall",
+			"ph": "#9a7a50",
+			"layer": "stand",
+			"desc": "Narrow wooden outhouse."
+		},
+		"haystack": {
+			"name": "Haystack",
+			"cat": "farm",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				8,
+				6
+			],
+			"shape": "round",
+			"ph": "#d8b850",
+			"layer": "stand",
+			"desc": "Round loose haystack."
+		},
+		"hay_bales": {
+			"name": "Hay bales",
+			"cat": "farm",
+			"size": [
+				12,
+				8
+			],
+			"foot": [
+				12,
+				6
+			],
+			"shape": "flat",
+			"ph": "#d8c060",
+			"layer": "stand",
+			"desc": "Three square bales in a row."
+		},
+		"stock_tank": {
+			"name": "Stock tank",
+			"cat": "farm",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				8,
+				8
+			],
+			"shape": "round",
+			"ph": "#8a9aa8",
+			"layer": "flat",
+			"desc": "Round galvanized water tank for cattle, water visible inside."
+		},
+		"water_trough": {
+			"name": "Water trough",
+			"cat": "farm",
+			"size": [
+				8,
+				4
+			],
+			"foot": [
+				8,
+				4
+			],
+			"shape": "flat",
+			"ph": "#8a9aa8",
+			"layer": "flat",
+			"desc": "Long wooden or tin trough."
+		},
+		"garden": {
+			"name": "Vegetable garden",
+			"cat": "farm",
+			"size": [
+				12,
+				8
+			],
+			"foot": [
+				12,
+				8
+			],
+			"shape": "flat",
+			"ph": "#6a8a3a",
+			"layer": "flat",
+			"desc": "Kitchen garden: short rows of greens and a scarecrow."
+		},
+		"corral": {
+			"name": "Corral",
+			"cat": "farm",
+			"size": [
+				24,
+				16
+			],
+			"foot": [
+				24,
+				16
+			],
+			"shape": "flat",
+			"ph": "#a08060",
+			"layer": "flat",
+			"desc": "Wooden rail fence pen with trampled dirt inside and a gate."
+		},
+		"pond_small": {
+			"name": "Small pond",
+			"cat": "farm",
+			"size": [
+				16,
+				12
+			],
+			"foot": [
+				16,
+				12
+			],
+			"shape": "flat",
+			"ph": "#5a8aa8",
+			"layer": "flat",
+			"desc": "Farm pond: irregular blue water with a muddy rim and a few reeds."
+		},
+		"pond_large": {
+			"name": "Large pond",
+			"cat": "farm",
+			"size": [
+				24,
+				16
+			],
+			"foot": [
+				24,
+				16
+			],
+			"shape": "flat",
+			"ph": "#5a8aa8",
+			"layer": "flat",
+			"desc": "Bigger pond with a cattail edge and a small wooden dock."
+		},
+		"tractor": {
+			"name": "Tractor",
+			"cat": "vehicle",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				8,
+				6
+			],
+			"shape": "vehicle",
+			"ph": "#c84a30",
+			"layer": "stand",
+			"desc": "Little red farm tractor, big rear wheels."
+		},
+		"pickup_truck": {
+			"name": "Pickup truck",
+			"cat": "vehicle",
+			"size": [
+				12,
+				8
+			],
+			"foot": [
+				12,
+				6
+			],
+			"shape": "vehicle",
+			"ph": "#4a6a8a",
+			"layer": "stand",
+			"desc": "1940s round-fendered pickup, faded blue."
+		},
+		"wagon": {
+			"name": "Wagon",
+			"cat": "vehicle",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				8,
+				6
+			],
+			"shape": "vehicle",
+			"ph": "#8a6a40",
+			"layer": "stand",
+			"desc": "Wooden farm wagon with a load of hay or crates."
+		},
+		"sedan_black": {
+			"name": "Black sedan",
+			"cat": "vehicle",
+			"size": [
+				12,
+				8
+			],
+			"foot": [
+				12,
+				6
+			],
+			"shape": "vehicle",
+			"ph": "#2a2a30",
+			"layer": "stand",
+			"desc": "Shiny black 1950s sedan with chrome trim (the banker's car)."
+		},
+		"horse_trailer": {
+			"name": "Horse trailer",
+			"cat": "vehicle",
+			"size": [
+				12,
+				8
+			],
+			"foot": [
+				12,
+				6
+			],
+			"shape": "vehicle",
+			"ph": "#c8c0b0",
+			"layer": "stand",
+			"desc": "Two-horse trailer, red and white stripes."
+		},
+		"longhorn": {
+			"name": "Longhorn",
+			"cat": "animal",
+			"size": [
+				8,
+				4
+			],
+			"foot": [
+				8,
+				4
+			],
+			"shape": "animal",
+			"ph": "#b07040",
+			"layer": "stand",
+			"desc": "Single longhorn steer seen from above: brown and white patches, wide horns."
+		},
+		"cattle_herd": {
+			"name": "Cattle herd",
+			"cat": "animal",
+			"size": [
+				16,
+				8
+			],
+			"foot": [
+				16,
+				8
+			],
+			"shape": "animal",
+			"ph": "#9a6a40",
+			"layer": "stand",
+			"desc": "Three or four cows grazing close together."
+		},
+		"horses": {
+			"name": "Horses",
+			"cat": "animal",
+			"size": [
+				12,
+				8
+			],
+			"foot": [
+				12,
+				8
+			],
+			"shape": "animal",
+			"ph": "#7a4a30",
+			"layer": "stand",
+			"desc": "Two horses, one chestnut, one paint."
+		},
+		"oak_tree": {
+			"name": "Live oak",
+			"cat": "plant",
+			"size": [
+				12,
+				12
+			],
+			"foot": [
+				4,
+				4
+			],
+			"shape": "tree",
+			"ph": "#4f6a35",
+			"layer": "stand",
+			"desc": "Big round live-oak crown with dark shadow below."
+		},
+		"cottonwood": {
+			"name": "Cottonwood",
+			"cat": "plant",
+			"size": [
+				12,
+				16
+			],
+			"foot": [
+				4,
+				4
+			],
+			"shape": "tree",
+			"ph": "#6a8a40",
+			"layer": "stand",
+			"desc": "Tall cottonwood with a lighter, airy crown."
+		},
+		"dead_tree": {
+			"name": "Dead tree",
+			"cat": "plant",
+			"size": [
+				8,
+				12
+			],
+			"foot": [
+				4,
+				4
+			],
+			"shape": "tree",
+			"ph": "#8a7a6a",
+			"layer": "stand",
+			"desc": "Bare grey dead tree, a few crooked branches."
+		},
+		"pine_tree": {
+			"name": "Pine tree",
+			"cat": "plant",
+			"size": [
+				8,
+				16
+			],
+			"foot": [
+				4,
+				4
+			],
+			"shape": "tree",
+			"ph": "#2f4a2a",
+			"layer": "stand",
+			"desc": "Loblolly pine: tall, dark green, pointed."
+		},
+		"pine_cluster": {
+			"name": "Pine stand",
+			"cat": "plant",
+			"size": [
+				16,
+				16
+			],
+			"foot": [
+				12,
+				6
+			],
+			"shape": "tree",
+			"ph": "#2f4a2a",
+			"layer": "stand",
+			"desc": "Three or four pines grouped together."
+		},
+		"mesquite": {
+			"name": "Mesquite bush",
+			"cat": "plant",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				6,
+				4
+			],
+			"shape": "tree",
+			"ph": "#6a7a3a",
+			"layer": "stand",
+			"desc": "Low feathery mesquite bush."
+		},
+		"sagebrush": {
+			"name": "Sagebrush",
+			"cat": "plant",
+			"size": [
+				4,
+				4
+			],
+			"foot": [
+				4,
+				4
+			],
+			"shape": "tree",
+			"ph": "#8a9a7a",
+			"layer": "stand",
+			"desc": "Tiny grey-green bush, for scattering."
+		},
+		"prickly_pear": {
+			"name": "Prickly pear",
+			"cat": "plant",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				6,
+				4
+			],
+			"shape": "tree",
+			"ph": "#5a8a4a",
+			"layer": "stand",
+			"desc": "Prickly pear cactus pads, a pink fruit or two."
+		},
+		"palm_tree": {
+			"name": "Palm tree",
+			"cat": "plant",
+			"size": [
+				8,
+				16
+			],
+			"foot": [
+				4,
+				4
+			],
+			"shape": "tree",
+			"ph": "#4a7a3a",
+			"layer": "stand",
+			"desc": "Texas sabal palm with a fan crown."
+		},
+		"bent_palm": {
+			"name": "Storm-bent palm",
+			"cat": "plant",
+			"size": [
+				12,
+				16
+			],
+			"foot": [
+				4,
+				4
+			],
+			"shape": "tree",
+			"ph": "#4a6a3a",
+			"layer": "stand",
+			"desc": "Palm bent hard sideways by wind, fronds streaming."
+		},
+		"reeds": {
+			"name": "Reeds",
+			"cat": "plant",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				6,
+				4
+			],
+			"shape": "tree",
+			"ph": "#7a8a4a",
+			"layer": "stand",
+			"desc": "Clump of cattails and reeds."
+		},
+		"tumbleweed": {
+			"name": "Tumbleweed",
+			"cat": "plant",
+			"size": [
+				4,
+				4
+			],
+			"foot": [
+				4,
+				4
+			],
+			"shape": "round",
+			"ph": "#a08a5a",
+			"layer": "stand",
+			"desc": "Small round tumbleweed."
+		},
+		"rocks": {
+			"name": "Rocks",
+			"cat": "plant",
+			"size": [
+				8,
+				4
+			],
+			"foot": [
+				8,
+				4
+			],
+			"shape": "round",
+			"ph": "#9a8a7a",
+			"layer": "stand",
+			"desc": "Scatter of three or four small stones."
+		},
+		"boulder": {
+			"name": "Boulder",
+			"cat": "plant",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				8,
+				6
+			],
+			"shape": "round",
+			"ph": "#8a7a6a",
+			"layer": "stand",
+			"desc": "One big boulder with a shadow."
+		},
+		"stumps": {
+			"name": "Stumps",
+			"cat": "plant",
+			"size": [
+				8,
+				4
+			],
+			"foot": [
+				8,
+				4
+			],
+			"shape": "round",
+			"ph": "#8a6a4a",
+			"layer": "stand",
+			"desc": "Freshly cut tree stumps (logging clearings)."
+		},
+		"dune": {
+			"name": "Sand dune",
+			"cat": "plant",
+			"size": [
+				16,
+				8
+			],
+			"foot": [
+				16,
+				8
+			],
+			"shape": "flat",
+			"ph": "#e8d098",
+			"layer": "flat",
+			"desc": "Small drifted dune with a sharp crest."
+		},
+		"bones": {
+			"name": "Cattle skull",
+			"cat": "plant",
+			"size": [
+				8,
+				4
+			],
+			"foot": [
+				8,
+				4
+			],
+			"shape": "flat",
+			"ph": "#e8e0d0",
+			"layer": "flat",
+			"desc": "Bleached cattle skull and a few bones."
+		},
+		"general_store": {
+			"name": "General store",
+			"cat": "town",
+			"size": [
+				16,
+				16
+			],
+			"foot": [
+				16,
+				10
+			],
+			"shape": "house",
+			"ph": "#a87850",
+			"layer": "stand",
+			"desc": "False-front general store with a covered porch."
+		},
+		"saloon": {
+			"name": "Saloon",
+			"cat": "town",
+			"size": [
+				16,
+				16
+			],
+			"foot": [
+				16,
+				10
+			],
+			"shape": "house",
+			"ph": "#8a5a3a",
+			"layer": "stand",
+			"desc": "Two-story saloon with a balcony."
+		},
+		"church": {
+			"name": "Church",
+			"cat": "town",
+			"size": [
+				12,
+				20
+			],
+			"foot": [
+				12,
+				10
+			],
+			"shape": "tall",
+			"ph": "#e8e0d0",
+			"layer": "stand",
+			"desc": "White wooden church with a steeple."
+		},
+		"courthouse": {
+			"name": "Courthouse",
+			"cat": "town",
+			"size": [
+				32,
+				24
+			],
+			"foot": [
+				32,
+				16
+			],
+			"shape": "house",
+			"ph": "#a85a40",
+			"layer": "stand",
+			"desc": "Red-brick county courthouse with a clock tower and lawn trees at the corners."
+		},
+		"bank_building": {
+			"name": "Bank",
+			"cat": "town",
+			"size": [
+				16,
+				16
+			],
+			"foot": [
+				16,
+				10
+			],
+			"shape": "house",
+			"ph": "#b8b0a0",
+			"layer": "stand",
+			"desc": "Stone bank with columns (Blackwood Trust)."
+		},
+		"rail_depot": {
+			"name": "Rail depot",
+			"cat": "town",
+			"size": [
+				24,
+				12
+			],
+			"foot": [
+				24,
+				8
+			],
+			"shape": "house",
+			"ph": "#c89a5a",
+			"layer": "stand",
+			"desc": "Wooden station with a long platform roof (place next to the railroad)."
+		},
+		"water_tower": {
+			"name": "Water tower",
+			"cat": "town",
+			"size": [
+				12,
+				20
+			],
+			"foot": [
+				8,
+				4
+			],
+			"shape": "tall",
+			"ph": "#8a8a8a",
+			"layer": "stand",
+			"desc": "Tank on four legs."
+		},
+		"gas_station": {
+			"name": "Gas station",
+			"cat": "town",
+			"size": [
+				16,
+				12
+			],
+			"foot": [
+				16,
+				8
+			],
+			"shape": "house",
+			"ph": "#e8e0d0",
+			"layer": "stand",
+			"desc": "Small 1940s filling station with two pumps and a canopy."
+		},
+		"house_row": {
+			"name": "Row of houses",
+			"cat": "town",
+			"size": [
+				24,
+				12
+			],
+			"foot": [
+				24,
+				8
+			],
+			"shape": "house",
+			"ph": "#c8b8a0",
+			"layer": "stand",
+			"desc": "Three small town houses side by side, different roof colors."
+		},
+		"tent": {
+			"name": "Tent",
+			"cat": "town",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				8,
+				6
+			],
+			"shape": "house",
+			"ph": "#d8d0b8",
+			"layer": "stand",
+			"desc": "Canvas wall tent."
+		},
+		"tent_camp": {
+			"name": "Tent camp",
+			"cat": "town",
+			"size": [
+				16,
+				12
+			],
+			"foot": [
+				16,
+				8
+			],
+			"shape": "house",
+			"ph": "#d8d0b8",
+			"layer": "stand",
+			"desc": "Three tents around a campfire (boomtown roughnecks)."
+		},
+		"street_lamp": {
+			"name": "Street lamp",
+			"cat": "town",
+			"size": [
+				4,
+				12
+			],
+			"foot": [
+				4,
+				4
+			],
+			"shape": "tall",
+			"ph": "#3a3a3a",
+			"layer": "stand",
+			"desc": "Iron street lamp with a warm light."
+		},
+		"fair_tent": {
+			"name": "Fair tent",
+			"cat": "town",
+			"size": [
+				16,
+				12
+			],
+			"foot": [
+				16,
+				8
+			],
+			"shape": "house",
+			"ph": "#c84a40",
+			"layer": "stand",
+			"desc": "Striped red-and-white fair tent."
+		},
+		"ferris_wheel": {
+			"name": "Ferris wheel",
+			"cat": "town",
+			"size": [
+				24,
+				24
+			],
+			"foot": [
+				12,
+				6
+			],
+			"shape": "tall",
+			"ph": "#c8c8d0",
+			"layer": "stand",
+			"desc": "State-fair Ferris wheel (seen from the side, standing up)."
+		},
+		"billboard": {
+			"name": "Billboard",
+			"cat": "town",
+			"size": [
+				12,
+				8
+			],
+			"foot": [
+				12,
+				4
+			],
+			"shape": "house",
+			"ph": "#e8c060",
+			"layer": "stand",
+			"desc": "Roadside billboard (no readable words)."
+		},
+		"storage_tank": {
+			"name": "Oil storage tank",
+			"cat": "industry",
+			"size": [
+				12,
+				12
+			],
+			"foot": [
+				12,
+				10
+			],
+			"shape": "round",
+			"ph": "#b0a898",
+			"layer": "stand",
+			"desc": "Round oil storage tank seen from above, with a ladder and a dark top."
+		},
+		"tank_farm": {
+			"name": "Tank farm",
+			"cat": "industry",
+			"size": [
+				24,
+				16
+			],
+			"foot": [
+				24,
+				14
+			],
+			"shape": "round",
+			"ph": "#b0a898",
+			"layer": "stand",
+			"desc": "Three storage tanks inside an earth berm."
+		},
+		"pipe_rack": {
+			"name": "Pipe stack",
+			"cat": "industry",
+			"size": [
+				12,
+				8
+			],
+			"foot": [
+				12,
+				6
+			],
+			"shape": "flat",
+			"ph": "#6a6a70",
+			"layer": "stand",
+			"desc": "Stack of steel pipe on wooden skids."
+		},
+		"sawmill": {
+			"name": "Sawmill",
+			"cat": "industry",
+			"size": [
+				24,
+				16
+			],
+			"foot": [
+				24,
+				10
+			],
+			"shape": "house",
+			"ph": "#8a6a4a",
+			"layer": "stand",
+			"desc": "Open-sided sawmill shed with a smokestack and a saw carriage."
+		},
+		"log_pile": {
+			"name": "Log pile",
+			"cat": "industry",
+			"size": [
+				12,
+				8
+			],
+			"foot": [
+				12,
+				6
+			],
+			"shape": "flat",
+			"ph": "#8a5a3a",
+			"layer": "stand",
+			"desc": "Stacked pine logs."
+		},
+		"refinery_unit": {
+			"name": "Refinery unit",
+			"cat": "industry",
+			"size": [
+				16,
+				24
+			],
+			"foot": [
+				16,
+				10
+			],
+			"shape": "tall",
+			"ph": "#9a9aa0",
+			"layer": "stand",
+			"desc": "Cracking tower with pipes and walkways."
+		},
+		"flare_stack": {
+			"name": "Flare stack",
+			"cat": "industry",
+			"size": [
+				4,
+				16
+			],
+			"foot": [
+				4,
+				4
+			],
+			"shape": "tall",
+			"ph": "#7a7a7a",
+			"layer": "stand",
+			"desc": "Thin stack with a small orange flame on top."
+		},
+		"warehouse": {
+			"name": "Warehouse",
+			"cat": "industry",
+			"size": [
+				24,
+				16
+			],
+			"foot": [
+				24,
+				12
+			],
+			"shape": "house",
+			"ph": "#8a8078",
+			"layer": "stand",
+			"desc": "Long corrugated warehouse with loading doors."
+		},
+		"pump_station": {
+			"name": "Pumping station",
+			"cat": "industry",
+			"size": [
+				16,
+				12
+			],
+			"foot": [
+				16,
+				8
+			],
+			"shape": "house",
+			"ph": "#9a9a90",
+			"layer": "stand",
+			"desc": "Small brick pump house with pipes coming out both ends."
+		},
+		"rodeo_arena": {
+			"name": "Rodeo arena",
+			"cat": "rodeo",
+			"size": [
+				32,
+				24
+			],
+			"foot": [
+				32,
+				24
+			],
+			"shape": "flat",
+			"ph": "#c8a070",
+			"layer": "flat",
+			"desc": "Oval dirt arena with a wooden fence and a gate."
+		},
+		"bucking_chutes": {
+			"name": "Bucking chutes",
+			"cat": "rodeo",
+			"size": [
+				16,
+				8
+			],
+			"foot": [
+				16,
+				6
+			],
+			"shape": "house",
+			"ph": "#8a6a40",
+			"layer": "stand",
+			"desc": "Row of wooden chutes."
+		},
+		"bleachers": {
+			"name": "Bleachers",
+			"cat": "rodeo",
+			"size": [
+				16,
+				8
+			],
+			"foot": [
+				16,
+				6
+			],
+			"shape": "house",
+			"ph": "#a08a6a",
+			"layer": "stand",
+			"desc": "Wooden bleachers with a few spectators."
+		},
+		"bayou_inlet": {
+			"name": "Bayou inlet",
+			"cat": "coast",
+			"size": [
+				24,
+				16
+			],
+			"foot": [
+				24,
+				16
+			],
+			"shape": "flat",
+			"ph": "#4a7a9a",
+			"layer": "flat",
+			"desc": "Inlet of water reaching into the land, reedy edges."
+		},
+		"shrimp_boat": {
+			"name": "Shrimp boat",
+			"cat": "coast",
+			"size": [
+				16,
+				8
+			],
+			"foot": [
+				16,
+				6
+			],
+			"shape": "vehicle",
+			"ph": "#e8e0d0",
+			"layer": "stand",
+			"desc": "White shrimp boat with outriggers (sits on water props)."
+		},
+		"dock": {
+			"name": "Dock",
+			"cat": "coast",
+			"size": [
+				24,
+				8
+			],
+			"foot": [
+				24,
+				8
+			],
+			"shape": "flat",
+			"ph": "#8a6a4a",
+			"layer": "flat",
+			"desc": "Wooden dock on pilings."
+		},
+		"fish_camp": {
+			"name": "Fish camp",
+			"cat": "coast",
+			"size": [
+				12,
+				12
+			],
+			"foot": [
+				10,
+				8
+			],
+			"shape": "house",
+			"ph": "#a8a090",
+			"layer": "stand",
+			"desc": "Shack on stilts with nets drying."
+		},
+		"beached_boat": {
+			"name": "Beached boat",
+			"cat": "coast",
+			"size": [
+				12,
+				8
+			],
+			"foot": [
+				12,
+				6
+			],
+			"shape": "vehicle",
+			"ph": "#9a8a7a",
+			"layer": "stand",
+			"desc": "Small wooden boat tipped on its side."
+		},
+		"debris": {
+			"name": "Storm debris",
+			"cat": "coast",
+			"size": [
+				8,
+				8
+			],
+			"foot": [
+				8,
+				6
+			],
+			"shape": "flat",
+			"ph": "#7a6a5a",
+			"layer": "flat",
+			"desc": "Broken boards, a tin sheet and a branch."
+		}
+	},
+	"sets": {
+		"farmstead": [
+			"farmhouse",
+			"barn_red",
+			"silo",
+			"windmill",
+			"haystack"
+		],
+		"small_farm": [
+			"small_house",
+			"grain_bins",
+			"chicken_coop",
+			"garden"
+		],
+		"homestead": [
+			"shack",
+			"outhouse",
+			"windmill",
+			"stock_tank"
+		],
+		"abandoned": [
+			"abandoned_house",
+			"dead_tree",
+			"bones"
+		],
+		"ranch": [
+			"farmhouse",
+			"barn_grey",
+			"corral",
+			"windmill",
+			"stock_tank",
+			"horses"
+		],
+		"town_block": [
+			"general_store",
+			"saloon",
+			"house_row",
+			"street_lamp"
+		],
+		"church_lot": [
+			"church",
+			"oak_tree"
+		],
+		"courthouse": [
+			"courthouse",
+			"oak_tree",
+			"oak_tree"
+		],
+		"depot": [
+			"rail_depot",
+			"water_tower"
+		],
+		"oil_camp": [
+			"tent_camp",
+			"pipe_rack",
+			"storage_tank",
+			"pickup_truck"
+		],
+		"tank_farm": [
+			"tank_farm",
+			"storage_tank",
+			"pump_station"
+		],
+		"sawmill": [
+			"sawmill",
+			"log_pile",
+			"log_pile",
+			"stumps"
+		],
+		"rodeo": [
+			"rodeo_arena",
+			"bucking_chutes",
+			"bleachers",
+			"horse_trailer"
+		],
+		"fish_camp": [
+			"bayou_inlet",
+			"shrimp_boat",
+			"fish_camp",
+			"dock"
+		],
+		"refinery": [
+			"refinery_unit",
+			"flare_stack",
+			"tank_farm",
+			"warehouse"
+		],
+		"bank": [
+			"bank_building",
+			"sedan_black",
+			"street_lamp"
+		],
+		"fair": [
+			"ferris_wheel",
+			"fair_tent",
+			"fair_tent"
+		],
+		"gas_station": [
+			"gas_station",
+			"pickup_truck",
+			"billboard"
+		],
+		"storm_wreck": [
+			"abandoned_house",
+			"debris",
+			"debris",
+			"beached_boat"
+		],
+		"pond": [
+			"pond_small",
+			"reeds",
+			"oak_tree"
+		],
+		"big_pond": [
+			"pond_large",
+			"reeds",
+			"cottonwood"
+		]
+	},
+	"themes": {
+		"farm": {
+			"name": "Farm country",
+			"fields": [
+				"wheat",
+				"cotton",
+				"corn",
+				"plowed_h",
+				"plowed_v",
+				"pasture",
+				"orchard",
+				"hay_meadow"
+			],
+			"lines": {
+				"railroad": 1,
+				"dirt_road": 2,
+				"creek": 1,
+				"tree_line": 2
+			},
+			"sets": [
+				[
+					"farmstead",
+					2
+				],
+				[
+					"small_farm",
+					2
+				],
+				[
+					"pond",
+					2
+				]
+			],
+			"scatter": [
+				[
+					"oak_tree",
+					6
+				],
+				[
+					"haystack",
+					4
+				],
+				[
+					"cattle_herd",
+					2
+				],
+				[
+					"tractor",
+					1
+				],
+				[
+					"hay_bales",
+					2
+				]
+			]
+		},
+		"boomtown_edge": {
+			"name": "Boomtown edge",
+			"fields": [
+				"dry_grass",
+				"dirt",
+				"plowed_h",
+				"hay_meadow",
+				"scrub"
+			],
+			"lines": {
+				"dirt_road": 2,
+				"fence": 2
+			},
+			"sets": [
+				[
+					"homestead",
+					1
+				],
+				[
+					"farmstead",
+					1
+				],
+				[
+					"oil_camp",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"mesquite",
+					8
+				],
+				[
+					"longhorn",
+					3
+				],
+				[
+					"sagebrush",
+					8
+				],
+				[
+					"haystack",
+					2
+				]
+			]
+		},
+		"dry_creek": {
+			"name": "Dry creek",
+			"fields": [
+				"cracked_mud",
+				"dry_grass",
+				"dirt",
+				"scrub"
+			],
+			"lines": {
+				"creek": 1,
+				"dirt_road": 1,
+				"fence": 1
+			},
+			"sets": [
+				[
+					"abandoned",
+					2
+				],
+				[
+					"homestead",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"dead_tree",
+					8
+				],
+				[
+					"rocks",
+					6
+				],
+				[
+					"bones",
+					2
+				],
+				[
+					"tumbleweed",
+					6
+				]
+			]
+		},
+		"ranch": {
+			"name": "Cattle ranch",
+			"fields": [
+				"pasture",
+				"hay_meadow",
+				"dry_grass",
+				"pasture"
+			],
+			"lines": {
+				"fence": 6,
+				"dirt_road": 1,
+				"creek": 1
+			},
+			"sets": [
+				[
+					"ranch",
+					1
+				],
+				[
+					"pond",
+					2
+				]
+			],
+			"scatter": [
+				[
+					"cattle_herd",
+					5
+				],
+				[
+					"longhorn",
+					6
+				],
+				[
+					"oak_tree",
+					6
+				],
+				[
+					"mesquite",
+					4
+				],
+				[
+					"hay_bales",
+					2
+				]
+			]
+		},
+		"boomtown": {
+			"name": "Boomtown",
+			"fields": [
+				"town_lot",
+				"town_lot",
+				"mud",
+				"dirt"
+			],
+			"lines": {
+				"dirt_road": 3,
+				"railroad": 1
+			},
+			"sets": [
+				[
+					"town_block",
+					2
+				],
+				[
+					"church_lot",
+					1
+				],
+				[
+					"depot",
+					1
+				],
+				[
+					"oil_camp",
+					2
+				],
+				[
+					"tank_farm",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"tent",
+					6
+				],
+				[
+					"wagon",
+					3
+				],
+				[
+					"pickup_truck",
+					2
+				],
+				[
+					"street_lamp",
+					4
+				]
+			]
+		},
+		"split": {
+			"name": "Wildcat camp vs. ranch",
+			"fields": [
+				"scrub",
+				"dirt",
+				"pasture",
+				"hay_meadow"
+			],
+			"lines": {
+				"dirt_road": 1,
+				"fence": 3
+			},
+			"sets": [
+				[
+					"oil_camp",
+					2
+				],
+				[
+					"ranch",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"mesquite",
+					6
+				],
+				[
+					"cattle_herd",
+					2
+				],
+				[
+					"pipe_rack",
+					2
+				],
+				[
+					"tent",
+					3
+				]
+			]
+		},
+		"piney": {
+			"name": "Piney woods",
+			"fields": [
+				"pine_floor",
+				"red_clay",
+				"pine_floor",
+				"pasture"
+			],
+			"lines": {
+				"dirt_road": 2,
+				"creek": 1,
+				"tree_line": 3
+			},
+			"sets": [
+				[
+					"sawmill",
+					1
+				],
+				[
+					"small_farm",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"pine_cluster",
+					10
+				],
+				[
+					"pine_tree",
+					12
+				],
+				[
+					"stumps",
+					6
+				],
+				[
+					"log_pile",
+					2
+				]
+			]
+		},
+		"county_seat": {
+			"name": "County seat",
+			"fields": [
+				"cotton",
+				"corn",
+				"town_lot",
+				"pasture",
+				"plowed_v"
+			],
+			"lines": {
+				"dirt_road": 3,
+				"tree_line": 1
+			},
+			"sets": [
+				[
+					"courthouse",
+					1
+				],
+				[
+					"town_block",
+					1
+				],
+				[
+					"church_lot",
+					1
+				],
+				[
+					"small_farm",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"oak_tree",
+					8
+				],
+				[
+					"street_lamp",
+					3
+				],
+				[
+					"wagon",
+					2
+				]
+			]
+		},
+		"rail_farms": {
+			"name": "Rail spur farms",
+			"fields": [
+				"cotton",
+				"corn",
+				"pasture",
+				"plowed_h",
+				"wheat"
+			],
+			"lines": {
+				"railroad": 2,
+				"dirt_road": 1
+			},
+			"sets": [
+				[
+					"depot",
+					1
+				],
+				[
+					"farmstead",
+					1
+				],
+				[
+					"small_farm",
+					2
+				],
+				[
+					"tank_farm",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"oak_tree",
+					5
+				],
+				[
+					"haystack",
+					3
+				],
+				[
+					"cattle_herd",
+					2
+				]
+			]
+		},
+		"rainy_farms": {
+			"name": "Rainy farms",
+			"fields": [
+				"mud",
+				"pasture",
+				"plowed_h",
+				"corn"
+			],
+			"lines": {
+				"creek": 2,
+				"tree_line": 3,
+				"dirt_road": 1
+			},
+			"sets": [
+				[
+					"small_farm",
+					2
+				],
+				[
+					"pond",
+					2
+				]
+			],
+			"scatter": [
+				[
+					"pine_tree",
+					6
+				],
+				[
+					"reeds",
+					4
+				],
+				[
+					"oak_tree",
+					4
+				]
+			]
+		},
+		"old_farm": {
+			"name": "Old farm county",
+			"fields": [
+				"wheat",
+				"cotton",
+				"corn",
+				"plowed_h",
+				"plowed_v",
+				"orchard",
+				"pasture",
+				"hay_meadow"
+			],
+			"lines": {
+				"railroad": 1,
+				"dirt_road": 2,
+				"creek": 1,
+				"tree_line": 2
+			},
+			"sets": [
+				[
+					"farmstead",
+					2
+				],
+				[
+					"small_farm",
+					1
+				],
+				[
+					"big_pond",
+					1
+				],
+				[
+					"pond",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"oak_tree",
+					6
+				],
+				[
+					"haystack",
+					3
+				],
+				[
+					"cattle_herd",
+					2
+				],
+				[
+					"wagon",
+					1
+				]
+			]
+		},
+		"west_texas": {
+			"name": "West Texas flats",
+			"fields": [
+				"caliche",
+				"scrub",
+				"dry_grass",
+				"scrub"
+			],
+			"lines": {
+				"dirt_road": 3,
+				"fence": 1
+			},
+			"sets": [
+				[
+					"homestead",
+					1
+				],
+				[
+					"oil_camp",
+					1
+				],
+				[
+					"rodeo",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"sagebrush",
+					12
+				],
+				[
+					"prickly_pear",
+					5
+				],
+				[
+					"mesquite",
+					5
+				],
+				[
+					"tumbleweed",
+					4
+				]
+			]
+		},
+		"rodeo": {
+			"name": "Rodeo country",
+			"fields": [
+				"dry_grass",
+				"pasture",
+				"dirt",
+				"hay_meadow"
+			],
+			"lines": {
+				"fence": 4,
+				"dirt_road": 1
+			},
+			"sets": [
+				[
+					"rodeo",
+					1
+				],
+				[
+					"ranch",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"horses",
+					5
+				],
+				[
+					"hay_bales",
+					3
+				],
+				[
+					"water_trough",
+					3
+				],
+				[
+					"mesquite",
+					3
+				]
+			]
+		},
+		"caprock": {
+			"name": "Caprock",
+			"fields": [
+				"caliche",
+				"red_clay",
+				"scrub",
+				"red_clay"
+			],
+			"lines": {
+				"dirt_road": 2,
+				"creek": 1
+			},
+			"sets": [
+				[
+					"homestead",
+					1
+				],
+				[
+					"oil_camp",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"boulder",
+					8
+				],
+				[
+					"rocks",
+					8
+				],
+				[
+					"mesquite",
+					4
+				],
+				[
+					"prickly_pear",
+					4
+				]
+			]
+		},
+		"pipeline_country": {
+			"name": "Pipeline country",
+			"fields": [
+				"scrub",
+				"dirt",
+				"dry_grass",
+				"caliche"
+			],
+			"lines": {
+				"dirt_road": 2,
+				"railroad": 1
+			},
+			"sets": [
+				[
+					"tank_farm",
+					2
+				],
+				[
+					"oil_camp",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"pipe_rack",
+					6
+				],
+				[
+					"storage_tank",
+					3
+				],
+				[
+					"pump_station",
+					2
+				],
+				[
+					"pickup_truck",
+					2
+				],
+				[
+					"sagebrush",
+					6
+				]
+			]
+		},
+		"sandstorm": {
+			"name": "Sandstorm",
+			"fields": [
+				"sand",
+				"sand",
+				"scrub",
+				"dirt"
+			],
+			"lines": {
+				"fence": 2,
+				"dirt_road": 1
+			},
+			"sets": [
+				[
+					"abandoned",
+					1
+				],
+				[
+					"homestead",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"dune",
+					8
+				],
+				[
+					"tumbleweed",
+					8
+				],
+				[
+					"dead_tree",
+					3
+				],
+				[
+					"sagebrush",
+					4
+				]
+			]
+		},
+		"gulf_farms": {
+			"name": "Gulf coast farms",
+			"fields": [
+				"rice_paddy",
+				"marsh",
+				"pasture",
+				"sand",
+				"rice_paddy"
+			],
+			"lines": {
+				"shell_road": 2,
+				"creek": 1
+			},
+			"sets": [
+				[
+					"fish_camp",
+					2
+				],
+				[
+					"small_farm",
+					1
+				],
+				[
+					"pond",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"palm_tree",
+					6
+				],
+				[
+					"reeds",
+					6
+				],
+				[
+					"cattle_herd",
+					1
+				]
+			]
+		},
+		"port": {
+			"name": "Industrial port",
+			"fields": [
+				"town_lot",
+				"town_lot",
+				"marsh",
+				"dirt"
+			],
+			"lines": {
+				"paved_road": 2,
+				"railroad": 2
+			},
+			"sets": [
+				[
+					"refinery",
+					1
+				],
+				[
+					"tank_farm",
+					2
+				],
+				[
+					"bank",
+					1
+				],
+				[
+					"fish_camp",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"warehouse",
+					2
+				],
+				[
+					"storage_tank",
+					3
+				],
+				[
+					"sedan_black",
+					2
+				],
+				[
+					"street_lamp",
+					4
+				]
+			]
+		},
+		"flood": {
+			"name": "Flooded plain",
+			"fields": [
+				"mud",
+				"marsh",
+				"mud",
+				"rice_paddy"
+			],
+			"lines": {
+				"shell_road": 1,
+				"creek": 2
+			},
+			"sets": [
+				[
+					"storm_wreck",
+					2
+				],
+				[
+					"fish_camp",
+					1
+				],
+				[
+					"big_pond",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"bent_palm",
+					6
+				],
+				[
+					"debris",
+					8
+				],
+				[
+					"reeds",
+					4
+				]
+			]
+		},
+		"quilt": {
+			"name": "All of Texas",
+			"fields": [
+				"pasture",
+				"pine_floor",
+				"scrub",
+				"marsh",
+				"wheat",
+				"caliche",
+				"cotton",
+				"red_clay"
+			],
+			"lines": {
+				"railroad": 1,
+				"dirt_road": 2,
+				"creek": 1,
+				"fence": 2
+			},
+			"sets": [
+				[
+					"farmstead",
+					1
+				],
+				[
+					"ranch",
+					1
+				],
+				[
+					"sawmill",
+					1
+				],
+				[
+					"oil_camp",
+					1
+				],
+				[
+					"fish_camp",
+					1
+				],
+				[
+					"tank_farm",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"pine_tree",
+					5
+				],
+				[
+					"mesquite",
+					5
+				],
+				[
+					"cattle_herd",
+					2
+				],
+				[
+					"palm_tree",
+					3
+				],
+				[
+					"oak_tree",
+					4
+				]
+			]
+		},
+		"city_edge": {
+			"name": "City edge",
+			"fields": [
+				"town_lot",
+				"pasture",
+				"wheat",
+				"orchard",
+				"town_lot"
+			],
+			"lines": {
+				"paved_road": 3,
+				"railroad": 1
+			},
+			"sets": [
+				[
+					"fair",
+					1
+				],
+				[
+					"refinery",
+					1
+				],
+				[
+					"gas_station",
+					2
+				],
+				[
+					"town_block",
+					1
+				],
+				[
+					"bank",
+					1
+				]
+			],
+			"scatter": [
+				[
+					"house_row",
+					3
+				],
+				[
+					"sedan_black",
+					3
+				],
+				[
+					"billboard",
+					2
+				],
+				[
+					"oak_tree",
+					5
+				]
+			]
+		}
+	}
+}

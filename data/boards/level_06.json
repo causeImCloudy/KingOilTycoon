@@ -1,0 +1,728 @@
+{
+	"default_field": "pine_floor",
+	"field_grid": {
+		"cell": 4,
+		"ids": [
+			"pine_floor",
+			"pasture",
+			"red_clay"
+		],
+		"rows": [
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAACCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAACCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAACCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAACCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAACCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAACCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAACCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAACCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAACCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBAAAAAAAAAAAA",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBBBBBBBAAAAAAAAAAAA",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBBBBBBBAAAAAAAAAAAA",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBBBBBBBAAAAAAAAAAAA",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBCCCCCCCCCAAAAAAAAA",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBCCCCCCCCCAAAAAAAAA",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBCCCCCCCCCAAAAAAAAA",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBBBBAAAAAABBBCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBBBBAAAAAABBBCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBBBBCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBBBBAAAAAABBBCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBAAABBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBAAABBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCC",
+			"BBBBBBBBBBBBCCCCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBBBBBBBAAABBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCC",
+			"AAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAABBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCC",
+			"AAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAABBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCC",
+			"AAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAABBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCC",
+			"AAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCC",
+			"AAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCC",
+			"AAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCBBBAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCC",
+			"AAAAAAAAAAAAAAACCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBCCCAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAACCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBCCCAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAACCCCCCCCCCCCCCCBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBCCCAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAACCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAACCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAACCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAACCCCCCBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAABBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAACCCCCCBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAABBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAACCCCCCBBBBBBBBBBBBBBBBBBAAAAAAAAAAAAAAABBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAACCCCCCCCCBBBBBBAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAACCCCCCCCCBBBBBBAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAACCCBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAACCCCCCCCCBBBBBBAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+		]
+	},
+	"lines": [
+		{
+			"kind": "dirt_road",
+			"points": [
+				[
+					0.0,
+					4.0
+				],
+				[
+					5.0,
+					4.0
+				],
+				[
+					5.0,
+					7.0
+				],
+				[
+					7.0,
+					7.0
+				],
+				[
+					7.0,
+					8.0
+				],
+				[
+					10.0,
+					8.0
+				],
+				[
+					10.0,
+					9.0
+				],
+				[
+					11.0,
+					9.0
+				],
+				[
+					11.0,
+					10.0
+				],
+				[
+					14.0,
+					10.0
+				],
+				[
+					14.0,
+					9.0
+				],
+				[
+					17.0,
+					9.0
+				],
+				[
+					17.0,
+					8.0
+				],
+				[
+					20.0,
+					8.0
+				],
+				[
+					20.0,
+					7.0
+				],
+				[
+					22.0,
+					7.0
+				],
+				[
+					22.0,
+					6.0
+				],
+				[
+					24.0,
+					6.0
+				],
+				[
+					24.0,
+					5.0
+				],
+				[
+					27.0,
+					5.0
+				],
+				[
+					27.0,
+					6.0
+				],
+				[
+					30.0,
+					6.0
+				]
+			]
+		},
+		{
+			"kind": "dirt_road",
+			"points": [
+				[
+					16.0,
+					0.0
+				],
+				[
+					16.0,
+					2.0
+				],
+				[
+					15.0,
+					2.0
+				],
+				[
+					15.0,
+					4.0
+				],
+				[
+					16.0,
+					4.0
+				],
+				[
+					16.0,
+					6.0
+				],
+				[
+					17.0,
+					6.0
+				],
+				[
+					17.0,
+					7.0
+				],
+				[
+					18.0,
+					7.0
+				],
+				[
+					18.0,
+					9.0
+				],
+				[
+					19.0,
+					9.0
+				],
+				[
+					19.0,
+					14.0
+				],
+				[
+					21.0,
+					14.0
+				],
+				[
+					21.0,
+					15.0
+				],
+				[
+					22.0,
+					15.0
+				],
+				[
+					22.0,
+					17.0
+				],
+				[
+					21.0,
+					17.0
+				],
+				[
+					21.0,
+					20.0
+				]
+			]
+		},
+		{
+			"kind": "creek",
+			"points": [
+				[
+					0.0,
+					4.0
+				],
+				[
+					5.0,
+					4.0
+				],
+				[
+					5.0,
+					3.0
+				],
+				[
+					6.0,
+					3.0
+				],
+				[
+					6.0,
+					2.0
+				],
+				[
+					7.0,
+					2.0
+				],
+				[
+					7.0,
+					1.0
+				],
+				[
+					8.0,
+					1.0
+				],
+				[
+					8.0,
+					2.0
+				],
+				[
+					9.0,
+					2.0
+				],
+				[
+					9.0,
+					3.0
+				],
+				[
+					10.0,
+					3.0
+				],
+				[
+					10.0,
+					4.0
+				],
+				[
+					11.0,
+					4.0
+				],
+				[
+					11.0,
+					6.0
+				],
+				[
+					10.0,
+					6.0
+				],
+				[
+					10.0,
+					9.0
+				],
+				[
+					11.0,
+					9.0
+				],
+				[
+					11.0,
+					10.0
+				],
+				[
+					12.0,
+					10.0
+				],
+				[
+					12.0,
+					11.0
+				],
+				[
+					13.0,
+					11.0
+				],
+				[
+					13.0,
+					12.0
+				],
+				[
+					14.0,
+					12.0
+				],
+				[
+					14.0,
+					14.0
+				],
+				[
+					15.0,
+					14.0
+				],
+				[
+					15.0,
+					15.0
+				],
+				[
+					18.0,
+					15.0
+				],
+				[
+					18.0,
+					14.0
+				],
+				[
+					21.0,
+					14.0
+				],
+				[
+					21.0,
+					15.0
+				],
+				[
+					23.0,
+					15.0
+				],
+				[
+					23.0,
+					14.0
+				],
+				[
+					24.0,
+					14.0
+				],
+				[
+					24.0,
+					15.0
+				],
+				[
+					25.0,
+					15.0
+				],
+				[
+					25.0,
+					16.0
+				],
+				[
+					27.0,
+					16.0
+				],
+				[
+					27.0,
+					17.0
+				],
+				[
+					28.0,
+					17.0
+				],
+				[
+					28.0,
+					18.0
+				],
+				[
+					29.0,
+					18.0
+				],
+				[
+					29.0,
+					19.0
+				],
+				[
+					30.0,
+					19.0
+				]
+			]
+		},
+		{
+			"kind": "tree_line",
+			"points": [
+				[
+					23.0,
+					14.0
+				],
+				[
+					23.0,
+					15.0
+				],
+				[
+					21.0,
+					15.0
+				],
+				[
+					21.0,
+					14.0
+				],
+				[
+					19.0,
+					14.0
+				],
+				[
+					19.0,
+					13.0
+				]
+			]
+		},
+		{
+			"kind": "tree_line",
+			"points": [
+				[
+					20.0,
+					14.0
+				],
+				[
+					19.0,
+					14.0
+				],
+				[
+					19.0,
+					12.0
+				]
+			]
+		},
+		{
+			"kind": "tree_line",
+			"points": [
+				[
+					16.0,
+					16.0
+				],
+				[
+					15.0,
+					16.0
+				],
+				[
+					15.0,
+					18.0
+				],
+				[
+					14.0,
+					18.0
+				],
+				[
+					14.0,
+					20.0
+				]
+			]
+		}
+	],
+	"props": [
+		{
+			"flip": false,
+			"id": "sawmill",
+			"x": 137.0,
+			"y": 234.0
+		},
+		{
+			"flip": false,
+			"id": "log_pile",
+			"x": 156.0,
+			"y": 233.0
+		},
+		{
+			"flip": false,
+			"id": "log_pile",
+			"x": 157.0,
+			"y": 226.0
+		},
+		{
+			"flip": false,
+			"id": "stumps",
+			"x": 112.0,
+			"y": 227.0
+		},
+		{
+			"flip": false,
+			"id": "small_house",
+			"x": 297.0,
+			"y": 227.0
+		},
+		{
+			"flip": false,
+			"id": "grain_bins",
+			"x": 289.0,
+			"y": 238.0
+		},
+		{
+			"flip": false,
+			"id": "chicken_coop",
+			"x": 291.0,
+			"y": 209.0
+		},
+		{
+			"flip": false,
+			"id": "garden",
+			"x": 316.0,
+			"y": 227.0
+		},
+		{
+			"flip": true,
+			"id": "pine_cluster",
+			"x": 163.0,
+			"y": 205.0
+		},
+		{
+			"flip": false,
+			"id": "pine_cluster",
+			"x": 270.0,
+			"y": 33.0
+		},
+		{
+			"flip": false,
+			"id": "pine_cluster",
+			"x": 21.0,
+			"y": 230.0
+		},
+		{
+			"flip": false,
+			"id": "pine_cluster",
+			"x": 288.0,
+			"y": 84.0
+		},
+		{
+			"flip": false,
+			"id": "pine_cluster",
+			"x": 241.0,
+			"y": 75.0
+		},
+		{
+			"flip": true,
+			"id": "pine_cluster",
+			"x": 264.0,
+			"y": 130.0
+		},
+		{
+			"flip": false,
+			"id": "pine_cluster",
+			"x": 57.0,
+			"y": 166.0
+		},
+		{
+			"flip": false,
+			"id": "pine_cluster",
+			"x": 14.0,
+			"y": 164.0
+		},
+		{
+			"flip": false,
+			"id": "pine_cluster",
+			"x": 314.0,
+			"y": 106.0
+		},
+		{
+			"flip": true,
+			"id": "pine_cluster",
+			"x": 273.0,
+			"y": 96.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 181.0,
+			"y": 18.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 128.0,
+			"y": 24.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 200.0,
+			"y": 165.0
+		},
+		{
+			"flip": false,
+			"id": "pine_tree",
+			"x": 313.0,
+			"y": 184.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 71.0,
+			"y": 57.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 203.0,
+			"y": 237.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 213.0,
+			"y": 31.0
+		},
+		{
+			"flip": false,
+			"id": "pine_tree",
+			"x": 115.0,
+			"y": 131.0
+		},
+		{
+			"flip": false,
+			"id": "pine_tree",
+			"x": 343.0,
+			"y": 47.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 7.0,
+			"y": 182.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 71.0,
+			"y": 74.0
+		},
+		{
+			"flip": true,
+			"id": "pine_tree",
+			"x": 301.0,
+			"y": 162.0
+		},
+		{
+			"flip": true,
+			"id": "stumps",
+			"x": 129.0,
+			"y": 195.0
+		},
+		{
+			"flip": true,
+			"id": "stumps",
+			"x": 4.0,
+			"y": 101.0
+		},
+		{
+			"flip": false,
+			"id": "stumps",
+			"x": 233.0,
+			"y": 45.0
+		},
+		{
+			"flip": false,
+			"id": "stumps",
+			"x": 41.0,
+			"y": 227.0
+		},
+		{
+			"flip": true,
+			"id": "stumps",
+			"x": 335.0,
+			"y": 168.0
+		},
+		{
+			"flip": true,
+			"id": "stumps",
+			"x": 284.0,
+			"y": 27.0
+		},
+		{
+			"flip": false,
+			"id": "log_pile",
+			"x": 9.0,
+			"y": 219.0
+		},
+		{
+			"flip": false,
+			"id": "log_pile",
+			"x": 31.0,
+			"y": 144.0
+		}
+	],
+	"theme": "piney"
+}

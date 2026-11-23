@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MatchSpeed" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/match_speed.gd" id="1_speed"]
+
+[resource]
+script = ExtResource("1_speed")
+id = "original"
+display_name = "Original rules"
+description = "The 1974 board game, rule for rule: $80,000 each, an $825,000 money supply, $25,000 pipelines. No turn limit."
+bank_size = 825000
+starting_cash = 80000
+income_mult = 1.0
+drill_cost_mult = 1.0
+bonus_drills = 0
+pipeline_cost = 25000
+royalty_per_well = 1000
+target_turns = 0
+turn_timer_sec = 0
+anim_speed = 1.0

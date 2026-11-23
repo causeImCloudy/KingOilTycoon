@@ -1,0 +1,682 @@
+{
+	"rivals": {
+		"hardpan": {
+			"name": "Hollis \"Hardpan\" McCrae",
+			"title": "Wildcatter",
+			"look": {
+				"skin": "skin_3",
+				"outfit": "outfit_brown",
+				"hat": "hat_hardhat",
+				"hat_color": "hatc_tin",
+				"paint": "paint_rust"
+			},
+			"taunt": "Ain't nobody smells oil like ol' Hardpan.",
+			"lose": "Well, I'll be. Beginner's luck, kid.",
+			"short": "Hardpan"
+		},
+		"dolores": {
+			"name": "Dolores Vance",
+			"title": "Rancher's Widow",
+			"look": {
+				"tycoon": "tycoon_bob",
+				"skin": "skin_1",
+				"outfit": "outfit_black",
+				"hat": "hat_stetson",
+				"hat_color": "hatc_black",
+				"paint": "paint_plain"
+			},
+			"taunt": "This was cattle country before your daddy was born.",
+			"lose": "Hmph. Keep your boots off my fences.",
+			"short": "Dolores"
+		},
+		"pickett": {
+			"name": "Judge Amos Pickett",
+			"title": "County Judge",
+			"look": {
+				"skin": "skin_4",
+				"outfit": "outfit_white",
+				"hat": "hat_derby",
+				"hat_color": "hatc_black",
+				"paint": "paint_steel"
+			},
+			"taunt": "In this county, I decide whose lease is legal.",
+			"lose": "Court is... adjourned.",
+			"short": "Judge Pickett"
+		},
+		"ruby": {
+			"name": "Ruby Carrow",
+			"title": "Rodeo Queen",
+			"look": {
+				"tycoon": "tycoon_braid",
+				"skin": "skin_5",
+				"outfit": "outfit_red",
+				"hat": "hat_stetson",
+				"hat_color": "hatc_white",
+				"paint": "paint_gold"
+			},
+			"taunt": "I've been thrown by meaner broncs than you.",
+			"lose": "Nice ride, partner. Real nice.",
+			"short": "Ruby"
+		},
+		"blackwood": {
+			"name": "Cyrus Blackwood",
+			"title": "Eastern Financier",
+			"look": {
+				"skin": "skin_2",
+				"outfit": "outfit_purple",
+				"hat": "hat_derby",
+				"hat_color": "hatc_black",
+				"paint": "paint_black"
+			},
+			"taunt": "Everything in Texas is for sale. Including you.",
+			"lose": "Impossible. My accountants assured me...",
+			"short": "Blackwood"
+		}
+	},
+	"chapters": [
+		{
+			"title": "Boomtown Beginnings",
+			"maps": [
+				0,
+				1,
+				2,
+				3,
+				4
+			],
+			"label_pos": [
+				180,
+				340
+			]
+		},
+		{
+			"title": "East Texas Rush",
+			"maps": [
+				5,
+				6,
+				7,
+				8,
+				9
+			],
+			"label_pos": [
+				60,
+				285
+			]
+		},
+		{
+			"title": "Permian Basin",
+			"maps": [
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"label_pos": [
+				4,
+				182
+			]
+		},
+		{
+			"title": "Gulf Coast Empire",
+			"maps": [
+				15,
+				16,
+				17
+			],
+			"label_pos": [
+				150,
+				118
+			]
+		},
+		{
+			"title": "The Big Board",
+			"maps": [
+				18,
+				19
+			],
+			"label_pos": [
+				4,
+				28
+			]
+		}
+	],
+	"maps": [
+		{
+			"title": "First Lease",
+			"intro": "1938. You've got eighty grand, a borrowed rig and one rival: a loud wildcatter who swears he can smell crude.",
+			"rivals": [
+				"hardpan"
+			],
+			"ai_levels": [
+				0
+			],
+			"map_type": "procedural",
+			"seed": 101,
+			"speed": "blitz",
+			"reward": 30,
+			"unlocks": [
+				"outfit_red"
+			],
+			"pos": [
+				30,
+				334
+			],
+			"background": "res://assets/ui/levels/level_01.png",
+			"background_desc": "Morning, 1938. A single borrowed wooden derrick stands on a bare, fenced lease at the edge of a tiny boomtown. Pale blue sky going gold at the horizon, flat tan dirt, a few mesquite bushes, a beat-up flatbed truck. In the distance, a second crooked derrick with a hand-painted sign nailed to it (Hardpan's). Hopeful and empty: lots of open sky.",
+			"board_theme": "boomtown_edge"
+		},
+		{
+			"title": "Dry Creek Gamble",
+			"intro": "Hardpan wants a rematch on a field half the town calls cursed.",
+			"rivals": [
+				"hardpan"
+			],
+			"ai_levels": [
+				0
+			],
+			"map_type": "procedural",
+			"seed": 202,
+			"speed": "blitz",
+			"reward": 35,
+			"unlocks": [
+				"hatc_mustard"
+			],
+			"pos": [
+				82,
+				326
+			],
+			"background": "res://assets/ui/levels/level_02.png",
+			"background_desc": "Hot noon over a dried-up creek bed: cracked mud, bleached cattle skull, dead cottonwood trees, a rope bridge over nothing. Two or three abandoned dry-hole derricks lean at angles, one with a crude 'CURSED' board. Heat-shimmer haze, washed-out white-yellow sky.",
+			"board_theme": "dry_creek"
+		},
+		{
+			"title": "The Widow's Fences",
+			"intro": "Dolores Vance owns half the county and doesn't take kindly to derricks on her horizon.",
+			"rivals": [
+				"dolores"
+			],
+			"ai_levels": [
+				1
+			],
+			"map_type": "procedural",
+			"seed": 303,
+			"speed": "blitz",
+			"reward": 40,
+			"unlocks": [
+				"paint_rust"
+			],
+			"pos": [
+				140,
+				330
+			],
+			"background": "res://assets/ui/levels/level_03.png",
+			"background_desc": "Late afternoon ranch land. Long barbed-wire fences run toward the horizon, a big white ranch house on a rise with a windmill, longhorn cattle grazing. A 'NO DRILLING - VANCE RANCH' sign on a fence post. Warm orange light, long shadows. Lots of fence lines.",
+			"board_theme": "ranch"
+		},
+		{
+			"title": "Saturday Night Boomtown",
+			"intro": "The boomtown never sleeps. Neither does Dolores.",
+			"rivals": [
+				"dolores"
+			],
+			"ai_levels": [
+				1
+			],
+			"map_type": "procedural",
+			"seed": 404,
+			"speed": "blitz",
+			"reward": 45,
+			"unlocks": [
+				"hat_hardhat"
+			],
+			"pos": [
+				205,
+				316
+			],
+			"background": "res://assets/ui/levels/level_04.png",
+			"background_desc": "Night in the boomtown's main street: wooden false-front buildings, saloon and dance hall with lit windows, string lights, a few Model-A trucks, mud in the street. Derricks with lanterns on the dark hills behind. Deep blue-purple sky with stars, warm yellow window light.",
+			"board_theme": "boomtown"
+		},
+		{
+			"title": "Two-Front War",
+			"intro": "Hardpan and Dolores have teamed up to run you out of town.",
+			"rivals": [
+				"hardpan",
+				"dolores"
+			],
+			"ai_levels": [
+				0,
+				1
+			],
+			"map_type": "procedural",
+			"seed": 505,
+			"speed": "blitz",
+			"reward": 55,
+			"unlocks": [
+				"outfit_green"
+			],
+			"pos": [
+				262,
+				318
+			],
+			"background": "res://assets/ui/levels/level_05.png",
+			"background_desc": "Dusk on the edge of town, two camps facing off: on the left Hardpan's ramshackle wildcat rig and tent, on the right Dolores's fenced ranch gate. Your lone derrick between them in the middle distance. Stormy orange-red sky, dust kicking up. A showdown feel.",
+			"board_theme": "split"
+		},
+		{
+			"title": "Piney Woods",
+			"intro": "East Texas, 1941. The fields are bigger, and so are the egos.",
+			"rivals": [
+				"hardpan",
+				"dolores"
+			],
+			"ai_levels": [
+				1,
+				1
+			],
+			"map_type": "procedural",
+			"seed": 606,
+			"speed": "online",
+			"reward": 60,
+			"unlocks": [
+				"hatc_tin"
+			],
+			"pos": [
+				318,
+				292
+			],
+			"background": "res://assets/ui/levels/level_06.png",
+			"background_desc": "1941, East Texas. Tall dark-green pine forest with a clearing full of new derricks packed close together, red clay roads, a sawmill with smoke. Morning mist between the trees. Cooler greens and red-brown earth: a clear change from the dusty first chapter.",
+			"board_theme": "piney"
+		},
+		{
+			"title": "Order in the Court",
+			"intro": "Judge Amos Pickett rules on every lease dispute in the county. Guess whose side he's on.",
+			"rivals": [
+				"pickett",
+				"hardpan"
+			],
+			"ai_levels": [
+				1,
+				1
+			],
+			"map_type": "procedural",
+			"seed": 707,
+			"speed": "online",
+			"reward": 65,
+			"unlocks": [
+				"hat_derby"
+			],
+			"pos": [
+				290,
+				262
+			],
+			"background": "res://assets/ui/levels/level_07.png",
+			"background_desc": "A small-town county courthouse square: red-brick courthouse with a clock tower and columns, a Texas flag, parked 1940s cars, a bench of old men whittling. Derricks visible behind the rooftops. Bright midday, clean blue sky. Pickett's territory: it should feel official and a little smug.",
+			"board_theme": "county_seat"
+		},
+		{
+			"title": "Rail Spur Rights",
+			"intro": "The new rail spur makes some plots worth twice as much. Pickett already knows which ones.",
+			"rivals": [
+				"pickett",
+				"dolores"
+			],
+			"ai_levels": [
+				1,
+				1
+			],
+			"map_type": "procedural",
+			"seed": 808,
+			"speed": "online",
+			"reward": 70,
+			"unlocks": [
+				"paint_steel"
+			],
+			"pos": [
+				225,
+				262
+			],
+			"background": "res://assets/ui/levels/level_08.png",
+			"background_desc": "A railroad spur cutting through the pines: steam locomotive pulling tank cars, a wooden water tower, a loading rack, survey stakes with little flags along the track. Late afternoon sun through the trees, steam clouds. Plots near the rails look valuable.",
+			"board_theme": "rail_farms"
+		},
+		{
+			"title": "Hung Jury",
+			"intro": "Three tycoons, one field, no mercy.",
+			"rivals": [
+				"pickett",
+				"dolores"
+			],
+			"ai_levels": [
+				1,
+				2
+			],
+			"map_type": "procedural",
+			"seed": 909,
+			"speed": "online",
+			"reward": 75,
+			"unlocks": [
+				"outfit_white"
+			],
+			"pos": [
+				150,
+				276
+			],
+			"background": "res://assets/ui/levels/level_09.png",
+			"background_desc": "Rainy evening in the piney woods: dark sky, steady rain streaks, puddles in the red clay, derricks lit by work lights, a boarded-up courthouse window lit from inside. Moody greys and greens with warm lamp highlights. Three rivals' rigs crowded together.",
+			"board_theme": "rainy_farms"
+		},
+		{
+			"title": "The Old Layout",
+			"intro": "An old-timer's field on the classic survey lines. Three strata, twelve notches, nowhere to hide.",
+			"rivals": [
+				"pickett",
+				"hardpan"
+			],
+			"ai_levels": [
+				2,
+				1
+			],
+			"map_type": "classic",
+			"seed": 1010,
+			"speed": "online",
+			"reward": 85,
+			"unlocks": [
+				"hatc_white"
+			],
+			"pos": [
+				75,
+				268
+			],
+			"background": "res://assets/ui/levels/level_10.png",
+			"background_desc": "An old surveyor's field on a clear day: a weathered survey map pinned to a board in the foreground corner, chain-link survey marks, straight fence lines on a grid, an old-timer's shack and rocking chair. Faded, slightly sepia colors, like an old photograph. Calm and orderly.",
+			"board_theme": "old_farm"
+		},
+		{
+			"title": "Permian Dawn",
+			"intro": "1946. West Texas, flat as a skillet and twice as hot. A rodeo queen has bought in.",
+			"rivals": [
+				"ruby",
+				"hardpan",
+				"dolores"
+			],
+			"ai_levels": [
+				1,
+				1,
+				1
+			],
+			"map_type": "procedural",
+			"seed": 1111,
+			"speed": "online",
+			"reward": 90,
+			"unlocks": [],
+			"pos": [
+				30,
+				232
+			],
+			"background": "res://assets/ui/levels/level_11.png",
+			"background_desc": "1946, West Texas at dawn. Endless flat land, a huge sky with a pink-orange sunrise, distant mesas, pump jacks starting to appear. A rodeo arena fence and a horse trailer with Ruby's red-and-white colors at one side. Wide and open: the horizon sits low.",
+			"board_theme": "west_texas"
+		},
+		{
+			"title": "Bronc Busting",
+			"intro": "Ruby Carrow drills like she rides: fast and reckless.",
+			"rivals": [
+				"ruby",
+				"pickett",
+				"hardpan"
+			],
+			"ai_levels": [
+				2,
+				1,
+				1
+			],
+			"map_type": "procedural",
+			"seed": 1212,
+			"speed": "online",
+			"reward": 95,
+			"unlocks": [
+				"paint_gold"
+			],
+			"pos": [
+				95,
+				222
+			],
+			"background": "res://assets/ui/levels/level_12.png",
+			"background_desc": "A dusty rodeo ground next to the oil field: wooden bucking chutes, bleachers, flags, a bronc mid-buck, dust clouds. Derricks right behind the arena. Bright, hot, saturated: red, white and dusty gold. Loud and reckless energy.",
+			"board_theme": "rodeo"
+		},
+		{
+			"title": "Caprock Country",
+			"intro": "The caprock hides deep oil. Expensive to find, rich when you do.",
+			"rivals": [
+				"ruby",
+				"dolores",
+				"pickett"
+			],
+			"ai_levels": [
+				2,
+				1,
+				2
+			],
+			"map_type": "procedural",
+			"seed": 1313,
+			"speed": "online",
+			"reward": 100,
+			"unlocks": [],
+			"pos": [
+				165,
+				210
+			],
+			"background": "res://assets/ui/levels/level_13.png",
+			"background_desc": "Caprock escarpment: a tall layered red-and-cream rock cliff splitting the land into high and low ground, a few big expensive steel derricks on top, a winding dirt road up the cliff. Late-day light making the rock layers glow. Should hint at deep oil (visible rock strata).",
+			"board_theme": "caprock"
+		},
+		{
+			"title": "Pipeline Fever",
+			"intro": "Everybody's laying pipe into everybody else's land. Keep your cash cushion fat.",
+			"rivals": [
+				"ruby",
+				"pickett",
+				"hardpan"
+			],
+			"ai_levels": [
+				2,
+				2,
+				1
+			],
+			"map_type": "procedural",
+			"seed": 1414,
+			"speed": "online",
+			"reward": 105,
+			"unlocks": [
+				"outfit_black"
+			],
+			"pos": [
+				235,
+				198
+			],
+			"background": "res://assets/ui/levels/level_14.png",
+			"background_desc": "A tangle of pipelines across the flat land: pipes on wooden trestles crossing each other, valve wheels, a pumping station, workers laying a new line, stacks of pipe. Hazy hot sky. Busy and crowded, steel greys against tan dirt.",
+			"board_theme": "pipeline_country"
+		},
+		{
+			"title": "Sandstorm",
+			"intro": "A dust storm blows in. When it clears, only the strong are still drilling.",
+			"rivals": [
+				"ruby",
+				"dolores",
+				"pickett"
+			],
+			"ai_levels": [
+				2,
+				2,
+				2
+			],
+			"map_type": "procedural",
+			"seed": 1515,
+			"speed": "online",
+			"reward": 110,
+			"unlocks": [],
+			"pos": [
+				300,
+				196
+			],
+			"background": "res://assets/ui/levels/level_15.png",
+			"background_desc": "A dust storm rolling in: a giant brown wall of dust on the horizon swallowing the far derricks, the sky turning orange-brown, tumbleweeds, a windsock straight out, near derricks still standing in silhouette. Heavy, dramatic, low visibility at the edges.",
+			"board_theme": "sandstorm"
+		},
+		{
+			"title": "Gulf Breeze",
+			"intro": "1951. Salt air, big money, and a banker from back East asking questions.",
+			"rivals": [
+				"blackwood",
+				"ruby",
+				"hardpan",
+				"dolores"
+			],
+			"ai_levels": [
+				2,
+				1,
+				1,
+				1
+			],
+			"map_type": "procedural",
+			"seed": 1616,
+			"speed": "online",
+			"reward": 120,
+			"unlocks": [
+				"paint_black"
+			],
+			"pos": [
+				200,
+				160
+			],
+			"background": "res://assets/ui/levels/level_16.png",
+			"background_desc": "1951, the Gulf Coast. Sandy shore with sea oats, a wooden pier, shrimp boats, a few derricks standing in the shallow water on platforms. Soft blue-green sea and a bright pastel sky with seagulls. A shiny black 1950s sedan parked on the shore road: the banker has arrived.",
+			"board_theme": "gulf_farms"
+		},
+		{
+			"title": "Hostile Takeover",
+			"intro": "Cyrus Blackwood doesn't drill. He buys whoever does.",
+			"rivals": [
+				"blackwood",
+				"pickett",
+				"ruby",
+				"dolores"
+			],
+			"ai_levels": [
+				2,
+				2,
+				1,
+				1
+			],
+			"map_type": "procedural",
+			"seed": 1717,
+			"speed": "online",
+			"reward": 130,
+			"unlocks": [],
+			"pos": [
+				112,
+				156
+			],
+			"background": "res://assets/ui/levels/level_17.png",
+			"background_desc": "A port city waterfront: a big refinery with tanks and flare stacks, a bank building with 'BLACKWOOD TRUST' over the door, tankers at the dock, gulls. Cooler, colder colors with purple-grey shadows. Money and smokestacks: it should feel corporate and cold.",
+			"board_theme": "port"
+		},
+		{
+			"title": "Hurricane Season",
+			"intro": "Storm clouds over the Gulf. Five barons, one coastline.",
+			"rivals": [
+				"blackwood",
+				"ruby",
+				"pickett",
+				"hardpan"
+			],
+			"ai_levels": [
+				2,
+				2,
+				2,
+				1
+			],
+			"map_type": "procedural",
+			"seed": 1818,
+			"speed": "online",
+			"reward": 140,
+			"unlocks": [
+				"outfit_purple"
+			],
+			"pos": [
+				95,
+				118
+			],
+			"background": "res://assets/ui/levels/level_18.png",
+			"background_desc": "Hurricane coming: dark green-grey storm clouds, palm trees bending, big waves crashing over a seawall, offshore derricks in the surf, a wind-torn flag, sideways rain. The most dramatic and dark of the coast backgrounds.",
+			"board_theme": "flood"
+		},
+		{
+			"title": "The Big Board",
+			"intro": "Every rival you've ever beaten, on one enormous field. Blackwood is bankrolling them all.",
+			"rivals": [
+				"blackwood",
+				"ruby",
+				"pickett",
+				"dolores",
+				"hardpan"
+			],
+			"ai_levels": [
+				2,
+				2,
+				2,
+				1,
+				1
+			],
+			"map_type": "procedural",
+			"seed": 1919,
+			"speed": "online",
+			"reward": 160,
+			"unlocks": [],
+			"pos": [
+				160,
+				92
+			],
+			"background": "res://assets/ui/levels/level_19.png",
+			"background_desc": "A huge oil field seen from a hill: hundreds of derricks to the horizon, pipelines everywhere, a growing 1950s city skyline far behind. Five rival camps with their colored flags on the hills (Hardpan, Dolores, Pickett, Ruby, Blackwood). Golden-hour light. Epic and crowded.",
+			"board_theme": "quilt"
+		},
+		{
+			"title": "King of Texas",
+			"intro": "The final showdown. Win this and there's no one left to call you a beginner.",
+			"rivals": [
+				"blackwood",
+				"ruby",
+				"pickett",
+				"dolores",
+				"hardpan"
+			],
+			"ai_levels": [
+				2,
+				2,
+				2,
+				2,
+				2
+			],
+			"map_type": "procedural",
+			"seed": 2020,
+			"speed": "classic",
+			"reward": 250,
+			"unlocks": [],
+			"pos": [
+				232,
+				70
+			],
+			"background": "res://assets/ui/levels/level_20.png",
+			"background_desc": "The finale: night over a big Texas city skyline with lit skyscrapers and searchlights sweeping the sky, a giant derrick in the foreground lit up like a monument, fireworks or a burning flare stack. Deep navy sky with gold lights: a triumphant, 'king of Texas' feel.",
+			"board_theme": "city_edge"
+		}
+	],
+	"map_note": "pos = [x, y] of each map's spot on the campaign world map (640x360, matching assets/ui/campaign_map.png; keep x under 345, the briefing panel covers the right side). Chapter label_pos = [x, y] of the region sign.",
+	"background_note": "background = 640x360 art for that level. It shows full-screen behind the level's title card before the match, then dimmed behind the match board. background_desc is the art brief (copied into asset_requests/).",
+	"board_note": "board_theme = decoration theme (data/board_kit.json) used to auto-fill data/boards/level_XX.json."
+}
