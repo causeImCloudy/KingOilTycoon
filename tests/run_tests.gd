@@ -21,6 +21,7 @@ func _init() -> void:
 	test_board_seed()
 	test_homestead()
 	test_trading()
+	test_campaign_war()
 	test_serialization()
 	test_full_games()
 	test_original_games()
@@ -538,6 +539,161 @@ func _site_cells_of(b: BoardMap) -> Array[Vector2i]:
 
 
 ## Campaign levels: same board every attempt (board_seed), but fresh oil and deck (seed).
+## The campaign county war: map shape, starting land, who you fight, money moving, knock-outs.
+func test_campaign_war() -> void:
+	var levels: Array = JSON.parse_string(FileAccess.get_file_as_string("res://data/campaign.json")).maps
+	var m := CountyMap.generate()
+	check(m.count() == CountyMap.COUNTY_COUNT, "the map has every county")
+	var connected := true
+	var lonely := false
+	for c in m.count():
+		check(m.polys[c].size() >= 3, "county %d has a shape" % c)
+		lonely = lonely or m.neighbors[c].is_empty()
+		connected = connected and m.hops[0][c] < 999
+		for n in m.neighbors[c]:
+			check(c in m.neighbors[n], "neighbors go both ways")
+	check(not lonely and connected, "every county can be reached")
+	var homes := {}
+	for h in m.homes:
+		homes[h] = true
+	check(m.homes.size() == 6 and homes.size() == 6, "six different home counties")
+	check(CountyMap.generate().polys[7] == m.polys[7], "the map is the same every time")
+
+	var w := CampaignWar.create(levels)
+	check(w.counties_of(0) == [w.home(0)], "you start on your home county alone")
+	for r in range(1, 6):
+		var held := w.counties_of(r).size()
+		check(w.owner[w.home(r)] == r and held >= CampaignWar.TERRITORY - 1 and held <= CampaignWar.TERRITORY, "rival %d holds its HQ and land" % r)
+	var used := {}
+	for c in m.count():
+		if w.level_of[c] >= 0:
+			used[w.level_of[c]] = true
+	check(used.size() == levels.size(), "every story level has a county")
+	check(w.level_of[w.home(5)] == 19, "Blackwood's HQ plays the last level")
+	var first: int = w.level_of.find(0)
+	check(w.attackable(first) and w.opponents(first).size() == 1, "the first level is next door with one rival")
+	var targets := 0
+	for c in m.count():
+		if w.attackable(c):
+			targets += 1
+			var opp := w.opponents(c)
+			check(opp.size() >= 1 and opp.size() <= 3, "1-3 rivals in a battle")
+			if w.owner[c] > 0:
+				check(opp[0] == w.owner[c], "the owner defends their county")
+		else:
+			check(w.owner[c] == 0 or not (w.home(0) in m.neighbors[c]), "counties next to you can be fought for")
+	check(targets == m.neighbors[w.home(0)].size(), "you can fight only next to your land")
+	check(not w.attackable(w.home(1)) or w.home(1) in m.neighbors[w.home(0)], "far counties are out of reach")
+	var near_hq: int = w.home(4)
+	check(w.ai_level(4, near_hq) > w.ai_level(4, w.home(0)) or w.ai_level(4, near_hq) == 2, "rivals fight harder at home")
+
+	# Winning: the county is yours and the rivals pay.
+	var owned := -1
+	for c in m.count():
+		if w.attackable(c) and w.owner[c] > 0:
+			owned = c
+	if owned < 0:
+		# Take the open land first until a rival county is in reach.
+		while owned < 0:
+			var any := -1
+			for c in m.count():
+				if w.attackable(c):
+					any = c
+					if w.owner[c] > 0:
+						owned = c
+			if owned < 0:
+				w.resolve(any, true)
+	var owner := w.owner[owned]
+	var purse_before := w.purse[owner - 1]
+	var dollars_before := w.dollars
+	var pay := w.win_payments(owned)
+	var res := w.resolve(owned, true)
+	check(w.owner[owned] == 0, "a won county is yours")
+	check(int(pay[0].amount) == mini(w.value[owned], purse_before), "the owner pays the county's worth")
+	check(w.purse[owner - 1] == purse_before - int(pay[0].amount), "the owner's purse drops")
+	var paid := 0
+	for p in res.payments:
+		paid += int(p.amount)
+	check(w.dollars == dollars_before + paid and res.dollars == paid, "you get what they pay")
+	# Losing: you pay a fifth of your dollars to the rivals you faced.
+	var target := -1
+	for c in m.count():
+		if w.attackable(c):
+			target = c
+	var opp := w.opponents(target)
+	var d0 := w.dollars
+	var p0: Array[int] = w.purse.duplicate()
+	res = w.resolve(target, false)
+	check(w.owner[target] != 0, "a lost county stays theirs")
+	var lost := d0 - w.dollars
+	check(absi(lost - roundi(d0 * CampaignWar.LOSS_SHARE / 1000.0 / opp.size()) * 1000 * opp.size()) <= 0, "you pay a fifth of your dollars")
+	var gained := 0
+	for r in range(1, 6):
+		gained += w.purse[r - 1] - p0[r - 1]
+	check(gained == lost, "what you lose goes to the rivals")
+	# Saves round-trip.
+	var back := CampaignWar.from_dict(w.to_dict(), levels)
+	check(back.owner == w.owner and back.purse == w.purse and back.dollars == w.dollars and back.battles == w.battles,
+		"a campaign survives a save")
+	check(CampaignWar.from_dict({"owner": [0, 1]}, levels).counties_of(0).size() == 1, "a save from another map starts over")
+	check(not w.spend(w.dollars + 1) and w.spend(1000), "upgrades spend dollars you have")
+
+	# Knock-outs: a broke rival is out and their land goes open; beat everyone to win.
+	var r1 := 1
+	w.purse[r1 - 1] = 1000
+	var rc := w.counties_of(r1)
+	var hit := -1
+	for c in rc:
+		w.owner[c] = r1
+	for nb in m.neighbors[rc[0]]:
+		if w.owner[nb] != r1:
+			w.owner[nb] = 0
+	hit = rc[0]
+	res = w.resolve(hit, true)
+	check(r1 in res.knocked_out and not w.alive(r1), "a broke rival is out")
+	check(w.counties_of(r1).is_empty(), "an out rival's land goes open")
+	for r in w.alive_rivals():
+		if r in w.opponents(hit):
+			pass
+	check(not (r1 in w.opponents(m.homes[1])), "an out rival never fights again")
+	for r in range(2, 6):
+		w.purse[r - 1] = 0
+	var last := -1
+	for c in m.count():
+		if w.attackable(c) and w.owner[c] > 0:
+			last = c
+	if last < 0:
+		for c in m.count():
+			if w.attackable(c):
+				last = c
+	res = w.resolve(last, true)
+	check(res.campaign_won and w.finished(), "beating every rival wins the campaign")
+	check(not w.attackable(last) and w.alive_rivals().is_empty(), "nothing left to fight")
+
+	# Simulated campaigns: a player who goes after the richest county and wins 60% of the time.
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 77
+	var lengths: Array[int] = []
+	for game in 20:
+		var sw := CampaignWar.create(levels)
+		while not sw.finished() and sw.battles < 200:
+			var best := -1
+			var best_pay := -1
+			for c in m.count():
+				if sw.attackable(c):
+					var total := 0
+					for p in sw.win_payments(c):
+						total += int(p.amount)
+					if total > best_pay:
+						best_pay = total
+						best = c
+			sw.resolve(best, rng.randf() < 0.6)
+		check(sw.finished(), "a campaign can be won")
+		lengths.append(sw.wins)
+	lengths.sort()
+	print("Campaign sim (60%% wins): wins needed median %d (%d-%d) of %d counties" % [lengths[10], lengths[0], lengths[-1], m.count()])
+
+
 func test_board_seed() -> void:
 	var a_cfg := make_settings(3, "classic", "procedural", 11)
 	a_cfg["board_seed"] = 202

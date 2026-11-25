@@ -31,6 +31,8 @@ var tab: String = "outfit"
 var selected: String = ""
 var tab_buttons: Dictionary = {}
 var balance: Label
+## Liquid Gold drop, or the campaign $ on the Upgrades tab (upgrades cost campaign dollars).
+var balance_icon: TextureRect
 var grid: GridContainer
 var scroll: ScrollContainer
 var group := ButtonGroup.new()
@@ -42,6 +44,8 @@ var house: BuildingView
 var sheds: Array[BuildingView] = []
 var item_name: Label
 var item_status: Label
+## Upgrades: the next level's price in campaign dollars.
+var item_cost: HBoxContainer
 var item_desc: Label
 var buy_btn: Button
 var wear_btn: Button
@@ -61,9 +65,11 @@ func _ready() -> void:
 
 	var bal := UiKit.hbox(3)
 	bal.position = Vector2(470, 6)
-	var drop := TextureRect.new()
-	drop.texture = UiKit.tex("res://assets/ui/icon_liquid_gold.png")
-	bal.add_child(drop)
+	balance_icon = TextureRect.new()
+	balance_icon.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	balance_icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	balance_icon.custom_minimum_size = Vector2(16, 16)
+	bal.add_child(balance_icon)
 	balance = UiKit.label("", 10, Color("f2c14e"))
 	balance.add_theme_color_override("font_outline_color", INK)
 	balance.add_theme_constant_override("outline_size", 2)
@@ -168,6 +174,8 @@ func _ready() -> void:
 	rv.add_child(item_name)
 	item_status = UiKit.label("", 8, GOLD_TXT)
 	rv.add_child(item_status)
+	item_cost = UiKit.hbox(3)
+	rv.add_child(item_cost)
 	item_desc = UiKit.label("", 8, Color("5a4632"))
 	item_desc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	item_desc.custom_minimum_size = Vector2(204, 0)
@@ -212,7 +220,14 @@ func _set_tab(t: String) -> void:
 
 
 func _rebuild() -> void:
-	balance.text = "%d Liquid Gold" % Profile.liquid_gold()
+	if tab == "upgrades":
+		balance_icon.texture = UiKit.tex(UiKit.DOLLAR_ICON)
+		balance.text = UiKit.dollar_text(Profile.dollars())
+		balance.tooltip_text = "Campaign dollars: won from rivals on the county map"
+	else:
+		balance_icon.texture = UiKit.tex("res://assets/ui/icon_liquid_gold.png")
+		balance.text = "%d Liquid Gold" % Profile.liquid_gold()
+		balance.tooltip_text = ""
 	for c in grid.get_children():
 		c.queue_free()
 	if tab == "upgrades":
@@ -330,8 +345,10 @@ func _upgrade_card(d: Dictionary) -> Button:
 		pips += "#" if i < lv else "-"
 	right.add_child(UiKit.label("[%s]" % pips, 8, GOLD_TXT))
 	var cost := Upgrades.next_cost(id, lv)
-	right.add_child(UiKit.label("Maxed" if cost < 0 else "%d LG" % cost, 8,
-		OWNED if cost < 0 else (GOLD_TXT if cost <= Profile.liquid_gold() else SHORT)))
+	if cost < 0:
+		right.add_child(UiKit.label("Maxed", 8, OWNED))
+	else:
+		right.add_child(UiKit.dollar_amount(cost, 8, GOLD_TXT if cost <= Profile.dollars() else SHORT))
 	return b
 
 
@@ -349,6 +366,8 @@ func _status(id: String) -> Array:
 
 func _show_detail() -> void:
 	var look := Profile.look()
+	for c in item_cost.get_children():
+		c.queue_free()
 	if tab == "upgrades":
 		_show_upgrade()
 	else:
@@ -425,10 +444,14 @@ func _show_upgrade() -> void:
 	item_status.add_theme_color_override("font_color", GOLD_TXT)
 	var now := _effect(d, lv)
 	var nxt := _effect(d, lv + 1) if cost >= 0 else ""
-	item_desc.text = "%s\nNow: %s%s\nCampaign only: Classic and online matches use base stats." % [
+	item_desc.text = "%s\nNow: %s%s\nBought with campaign dollars won from rivals. Campaign only: Classic and online matches use base stats." % [
 		d.desc, now, ("\nNext: " + nxt) if nxt != "" else ""]
-	buy_btn.text = "Maxed" if cost < 0 else "Buy level %d (%d)" % [lv + 1, cost]
-	buy_btn.disabled = cost < 0 or cost > Profile.liquid_gold()
+	if cost >= 0:
+		var short := cost > Profile.dollars()
+		item_cost.add_child(UiKit.label("Next level:", 8, SHORT if short else GOLD_TXT))
+		item_cost.add_child(UiKit.dollar_amount(cost, 8, SHORT if short else GOLD_TXT))
+	buy_btn.text = "Maxed" if cost < 0 else "Buy level %d" % (lv + 1)
+	buy_btn.disabled = cost < 0 or cost > Profile.dollars()
 
 
 func _effect(d: Dictionary, lv: int) -> String:
@@ -450,7 +473,7 @@ func _effect(d: Dictionary, lv: int) -> String:
 func _campaign_reward(id: String) -> String:
 	for i in Session.campaign.maps.size():
 		if id in Session.campaign.maps[i].get("unlocks", []):
-			return "campaign map %d (%s)" % [i + 1, Session.campaign.maps[i].title]
+			return "the campaign battle \"%s\"" % Session.campaign.maps[i].title
 	return ""
 
 

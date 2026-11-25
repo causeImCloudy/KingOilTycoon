@@ -37,14 +37,14 @@ original's name, artwork, board, or card wording.
 - Rules (pure data, headless): `scripts/game/` — `game_state.gd` (all rules, `apply(action)`
   returns events), `board_map.gd` (procedural + Classic layout), `oil_field.gd` (3 strata),
   `deck.gd`, `ai_player.gd`, `cosmetics.gd`, `upgrades.gd`, `match_speed.gd`.
-- Autoloads: `Profile` (save, Liquid Gold, upgrades, cosmetics), `Session` (scene routing,
-  match config, save game), `Sfx` (plays audio only if files exist), `Net` (lobby + RPC).
+- Autoloads: `Profile` (save, Liquid Gold, the campaign war and its dollars, upgrades, cosmetics),
+  `Session` (scene routing, match config incl. county battles `battle_def` / `campaign_config`, save game), `Sfx` (plays audio only if files exist), `Net` (lobby + RPC).
 - UI is built in code; each `.tscn` is a root node plus a script. `scripts/ui/match.gd` plays
   rule events through an animation queue; `BoardView` keeps a display copy of the state.
 - Customize & Store (`scripts/ui/shop_screen.gd`, `Session.open_shop(tab, back_to)`): one screen
   for your name and look and the General Store. Each tab lists every option of one cosmetic
   category (owned ones: Wear/Use; others: buy with Liquid Gold, `Profile.buy_cosmetic`) plus a
-  campaign Upgrades tab (`Upgrades.DEFS`). `Session.customize_mode = "create"` is first-time
+  campaign Upgrades tab (`Upgrades.DEFS`, bought with campaign dollars). `Session.customize_mode = "create"` is first-time
   character creation before the campaign. Campaign wins still unlock their reward items for free.
 - Homestead (presentation only): a house on each player's first property, a small outbuilding on
   every other (`scripts/ui/homestead.gd`, drawn by `BoardView`). Styles and colors are cosmetics
@@ -55,11 +55,19 @@ original's name, artwork, board, or card wording.
   a plot or passes: `right_holder`, `buy` / `pass_land`). UI is the
   deal/reply side panel in `match.gd`, opened by clicking a rival's name (`PlayerPanel.clicked`);
   click land on the board to add it. No offer or land limits. AI in `ai_player.gd`.
+- Campaign = a county war (`scripts/ui/campaign_screen.gd`): a raised Texas cut into 40 counties
+  (`scripts/game/county_map.gd`, generated from a fixed seed; homes, outline and names are
+  constants there). Rules in `scripts/game/campaign_war.gd` (headless): you vs 5 rivals with HQs,
+  fight counties next to your land against 1-3 rivals, winning takes the county and the rivals
+  pay you (its worth from the owner); losing pays them a fifth of your dollars; a broke rival is
+  out. Saved in `Profile.data.war`. Campaign dollars use their own $ sign (`UiKit.dollar_icon`,
+  `assets/ui/icon_dollar.png`). Changing the map generation restarts saved campaigns
+  (`CountyMap.MAP_VERSION`).
 - Classic Game mode (menu) = original 1974 rules: `settings.rules = "original"`, branches in
   `game_state.gd` via `original_rules()`; see design notes "Classic mode".
-- Data: `data/match_speeds/*.tres` (pace tuning), `data/campaign.json` (20 maps, rivals,
-  world-map spot positions `pos` and region sign positions `label_pos`, matched to
-  `assets/ui/campaign_map.png`; move them if the map art changes).
+- Data: `data/match_speeds/*.tres` (pace tuning), `data/campaign.json` (20 story levels and the
+  5 rivals; each level is placed on a county by `CampaignWar`; the old world-map `pos`,
+  `label_pos` and `chapters` fields and `assets/ui/campaign_map.png` are no longer used).
   Each map also has `background` (640x360 art in `assets/ui/levels/`, shown on the level's title
   card and dimmed behind the match) and `background_desc` (the art brief the generator copies to
   `asset_requests/`).
@@ -85,7 +93,7 @@ original's name, artwork, board, or card wording.
 - Shop test (buys with button presses, restores the profile, PASS/FAIL): `godot --path . -- --shoptest=<dir>`
 - Screenshot tour (opens a window): `godot --path . -- --shots=<dir>`
 - Bot-play a match: `godot --path . -- --autoplay`
-- Real-click test (board purchase, fire, land for sale, a trade + campaign spot, prints PASS/FAIL): `godot --path . -- --clicktest=<dir>`
+- Real-click test (board purchase, fire, land for sale, a trade + campaign county, prints PASS/FAIL): `godot --path . -- --clicktest=<dir>`
 - Input rule: the board and campaign map read clicks in `_unhandled_input` using the event's
   position (`make_input_local`). Any full-screen or overlapping Control must use
   `MOUSE_FILTER_IGNORE`, or it silently eats those clicks.

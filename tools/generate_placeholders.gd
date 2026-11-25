@@ -85,6 +85,9 @@ func base_assets() -> Array:
 		{"path": "res://assets/ui/icon_liquid_gold.png", "size": "16x16", "frames": "1",
 			"desc": "Liquid Gold currency icon: a single droplet of crude oil, glossy black with a warm gold highlight/rim so it reads as 'liquid gold'. Used in the campaign HUD, the upgrade shop and reward pop-ups.",
 			"draw": draw_droplet},
+		{"path": "res://assets/ui/icon_dollar.png", "size": "9x12", "frames": "1",
+			"desc": "Campaign dollar sign: the game's own $ (the campaign currency, won from rivals and spent on upgrades). It replaces the $ in front of campaign amounts, so it sits next to 8 px text: an S with a double bar, gold or green banknote ink with a dark outline, maybe a little Western flourish. Transparent background.",
+			"draw": draw_dollar},
 		{"path": "res://assets/ui/icon_cash.png", "size": "16x16", "frames": "1",
 			"desc": "In-match money icon: a green 1950s dollar bill or money bag. Used next to cash amounts in player panels.",
 			"draw": draw_cash},
@@ -142,9 +145,12 @@ func base_assets() -> Array:
 		{"path": "res://assets/ui/icon_star_empty.png", "size": "9x9", "frames": "1",
 			"desc": "Empty difficulty star: same outline as icon_star.png with a dull or hollow middle.",
 			"draw": func(img): draw_star(img, false)},
-		{"path": "res://assets/ui/campaign_map.png", "size": "640x360", "frames": "1",
-			"desc": "Campaign world map of Texas. The trail of 20 map spots snakes up the left ~350 px (spot positions are in data/campaign.json 'pos'); the right side (x > 356) is covered by the briefing panel, so keep it simple there. Regions from bottom to top: Boomtown Beginnings (dusty boomtown, y 300-360), East Texas Rush (piney woods, y 245-300), Permian Basin (flat caprock and mesas, y 190-245), Gulf Coast Empire (coast and water on the left, y 135-190), The Big Board (Houston-style skyline at the top). Leave the trail area readable: the game draws the dashed trail and spot markers on top.",
-			"draw": draw_campaign_map},
+		{"path": "res://assets/ui/campaign_map.png", "size": "356x336", "frames": "1",
+			"desc": "Texas oil survey terrain sampled continuously across the 40 interactive counties, with clear ground for ownership tints and HQ markers. The top of the texture corresponds to screen y=24. Opaque, no labels or political borders.",
+			"draw": func(img): img.fill(Color("b5a17b"))},
+		{"path": "res://assets/ui/campaign_atlas.png", "size": "356x336", "frames": "1",
+			"desc": "Printed survey sheet beneath the raised Texas county map: parchment, compass rose, neatline and Gulf waters following the CountyMap coastline. Opaque.",
+			"draw": func(img): img.fill(Color("cfbc94"))},
 		{"path": "res://assets/ui/title_logo.png", "size": "256x64", "frames": "1",
 			"desc": "Logo: 'STANDARD OIL' with the subtitle 'An Oil Tycoon Game'. Mid-century gas-station sign lettering, with an oil-drop or derrick motif. Transparent background.",
 			"draw": draw_logo},
@@ -679,6 +685,26 @@ func draw_droplet(img: Image) -> void:
 	outline(img, Color("8a6a1c"))
 
 
+func draw_dollar(img: Image) -> void:
+	var rows := [
+		"...#.#...",
+		".#######.",
+		"##.#.#.##",
+		"##.#.#...",
+		".######..",
+		"..######.",
+		"...#.#.##",
+		"##.#.#.##",
+		".#######.",
+		"...#.#...",
+	]
+	for y in rows.size():
+		for x in rows[y].length():
+			if rows[y][x] == "#":
+				px(img, x, y + 1, GOLD if y < 5 else Color("c98f1e"))
+	outline(img, Color("3a2a10"))
+
+
 func draw_cash(img: Image) -> void:
 	rect(img, 1, 4, 14, 8, Color("5f8f4e"))
 	rect(img, 2, 5, 12, 6, Color("7fb36b"))
@@ -1028,67 +1054,6 @@ func draw_portrait_sheet(img: Image, layer: String) -> void:
 					rect(img, hx - 7, hy - 5, 15, 1, GREY_DARK)
 					rect(img, hx - 4, hy - 10, 9, 5, GREY)
 					rect(img, hx - 4, hy - 6, 9, 1, GREY_DARK)
-
-
-func draw_campaign_map(img: Image) -> void:
-	var bands := [
-		[0, 100, Color("6d5a7a"), Color("8c7a94")],   # Big Board: dusky city sky
-		[100, 140, Color("c9b27e"), Color("d8c38f")],  # Gulf coast sand
-		[140, 192, Color("c7a46a"), Color("d6b77d")],  # Gulf / transition
-		[192, 246, Color("d9b780"), Color("e6c995")],  # Permian caprock
-		[246, 300, Color("6f7d3c"), Color("85934c")],  # East Texas pines
-		[300, 360, Color("b98a57"), Color("c99a65")],  # Boomtown dust
-	]
-	for b in bands:
-		for y in range(b[0], b[1]):
-			rect(img, 0, y, 640, 1, (b[2] as Color).lerp(b[3], float(y - b[0]) / (b[1] - b[0])))
-	var r := RandomNumberGenerator.new()
-	r.seed = 21
-	# Gulf water on the left.
-	for y in range(130, 200):
-		var w := int(46 + 20 * sin(y * 0.09))
-		rect(img, 0, y, w, 1, Color("3f7d8c"))
-		px(img, w, y, Color("e9dcb8"))
-	# Pines.
-	for i in 140:
-		var x := r.randi_range(0, 639)
-		var y := r.randi_range(250, 296)
-		for k in 4:
-			rect(img, x - k, y + k, 1 + k * 2, 1, Color("3e5a2a"))
-		px(img, x, y + 4, WOOD)
-	# Mesas.
-	for i in 6:
-		var x := r.randi_range(10, 600)
-		var y := r.randi_range(196, 236)
-		rect(img, x, y, r.randi_range(18, 40), 6, Color("b5854f"))
-		rect(img, x, y, 40, 1, Color("8a6239"))
-	# Skyline.
-	var x := 0
-	while x < 640:
-		var w := r.randi_range(10, 26)
-		var h := r.randi_range(20, 70)
-		rect(img, x, 100 - h, w - 2, h, Color("3a2a3a"))
-		for wy in range(100 - h + 4, 98, 6):
-			for wx in range(x + 2, x + w - 4, 4):
-				if r.randf() < 0.4:
-					px(img, wx, wy, GOLD)
-		x += w
-	# Boomtown shacks and derricks.
-	for i in 22:
-		var bx := r.randi_range(0, 630)
-		var by := r.randi_range(304, 352)
-		if r.randf() < 0.5:
-			rect(img, bx, by, 8, 6, Color("7a4e2a"))
-			rect(img, bx - 1, by - 2, 10, 2, Color("5a3a1e"))
-		else:
-			for yy in range(by - 12, by):
-				var half := int((yy - (by - 12)) * 0.3)
-				px(img, bx - half, yy, Color("4a3020"))
-				px(img, bx + half, yy, Color("4a3020"))
-	# Dither the band seams.
-	for y in [100, 140, 192, 246, 300]:
-		for xx in range(0, 640, 2):
-			px(img, xx, y, Color(0, 0, 0, 0.25))
 
 
 func draw_star(img: Image, filled: bool) -> void:

@@ -58,6 +58,8 @@ var _turn_time_left: float = 0.0
 var _bid_amount: int = 0
 var _bid_label: Label
 var _rewards_given: bool = false
+## The campaign county battle being played (Session.battle_def), or {} outside the campaign.
+var _battle: Dictionary = {}
 ## Trading: the side panel for making a deal ("compose") or answering one ("reply").
 var _trade_panel: Control
 var _trade_view: String = ""
@@ -69,6 +71,8 @@ const GET_COLOR := Color("b8f08a")
 
 
 func _ready() -> void:
+	if Session.campaign_county >= 0:
+		_battle = Session.battle_def(Session.campaign_county)
 	net_mode = Session.net_mode
 	if not Session.resume_state.is_empty():
 		if Session.resume_state.has("oil"):
@@ -92,7 +96,7 @@ func _ready() -> void:
 		Net.broadcast_update([], state.to_dict(false))
 	if state.turn_number == 0 and state.phase == GameConst.PHASE_DRAFT:
 		var first: Array = [{"type": "draft_next", "player": state.current}]
-		if Session.campaign_index >= 0:
+		if not _battle.is_empty():
 			first.push_front({"type": "level_intro"})
 		_enqueue(first)
 	else:
@@ -763,17 +767,13 @@ func _run_ai() -> void:
 ## Board decoration: the saved layout for this campaign level or the Classic layout, otherwise
 ## an auto layout in the level's theme (farm country for random fields).
 func _board_decor() -> Dictionary:
-	var theme := "farm"
-	if Session.campaign_index >= 0:
-		theme = str(Session.campaign.maps[Session.campaign_index].get("board_theme", "farm"))
+	var theme := str(_battle.get("board_theme", "farm"))
 	return BoardDecor.layout_for(Session.campaign_index, state.board, theme)
 
 
-## The current campaign level's background art, or null outside the campaign.
+## The current campaign county's background art (counties with a level), or null.
 func _level_background() -> Texture2D:
-	if Session.campaign_index < 0:
-		return null
-	var path: String = Session.campaign.maps[Session.campaign_index].get("background", "")
+	var path: String = _battle.get("background", "")
 	return UiKit.tex(path) if path != "" and ResourceLoader.exists(path) else null
 
 
@@ -782,18 +782,25 @@ func _level_background() -> Texture2D:
 func _show_level_intro() -> void:
 	if instant():
 		return
-	var map_def: Dictionary = Session.campaign.maps[Session.campaign_index]
+	var map_def: Dictionary = _battle
 	var card := Control.new()
 	card.size = SCREEN
 	card.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(card)
+	var dim := ColorRect.new()
+	dim.color = Color(0.08, 0.06, 0.04, 0.8)
+	dim.size = SCREEN
+	dim.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	card.add_child(dim)
 	var art := TextureRect.new()
 	art.texture = _level_background()
 	art.size = SCREEN
 	art.stretch_mode = TextureRect.STRETCH_SCALE
 	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	card.add_child(art)
-	var title := UiKit.label("Level %d: %s" % [Session.campaign_index + 1, map_def.title], UiKit.FONT_TITLE, Color("f2c14e"))
+	var county_name: String = Profile.war().map.names[int(map_def.county)] + " County"
+	var title := UiKit.label(map_def.title if map_def.title == county_name else "%s: %s" % [county_name, map_def.title],
+		UiKit.FONT_TITLE, Color("f2c14e"))
 	title.add_theme_color_override("font_outline_color", Color("1d1611"))
 	title.add_theme_constant_override("outline_size", 4)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -1960,33 +1967,56 @@ func _show_results(ev: Dictionary) -> void:
 		worth.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		row.add_child(worth)
 		v.add_child(row)
-	if Session.campaign_index >= 0 and not _rewards_given:
+	if not _battle.is_empty() and not _rewards_given:
 		_rewards_given = true
-		var won: bool = ev.winner == 0
-		var map_def: Dictionary = Session.campaign.maps[Session.campaign_index]
-		var rewards: Dictionary = Profile.complete_map(Session.campaign_index, won, map_def)
-		var rr := UiKit.hbox(4)
-		var drop := TextureRect.new()
-		drop.texture = UiKit.tex("res://assets/ui/icon_liquid_gold.png")
-		rr.add_child(drop)
-		rr.add_child(UiKit.label("+%d Liquid Gold%s" % [rewards.liquid_gold, "" if won else " (consolation)"], 10, Color("7a5a10")))
-		v.add_child(rr)
-		for id in rewards.unlocked:
-			v.add_child(UiKit.label("Unlocked: %s" % Cosmetics.name_of(id), 8, Color("2f5d3a")))
-		if won:
-			var rival: Dictionary = Session.campaign.rivals[map_def.rivals[0]]
-			var quote := UiKit.label("\"%s\" - %s" % [rival.lose, rival.name], 8)
-			quote.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-			v.add_child(quote)
+		_campaign_rewards(v, ev.winner == 0)
 	var btns := UiKit.hbox(6)
 	v.add_child(btns)
-	if Session.campaign_index >= 0:
-		btns.add_child(UiKit.button("Campaign", func(): Session.goto("campaign")))
+	if not _battle.is_empty():
+		btns.add_child(UiKit.button("County Map", func(): Session.goto("campaign")))
 	btns.add_child(UiKit.button("Main Menu", func():
 		if net_mode != "offline":
 			Net.leave()
 		Session.goto("menu")))
 	add_child(result_panel)
+
+
+## Campaign results: the county changes hands (or not), dollars move, rivals may be knocked out.
+func _campaign_rewards(v: VBoxContainer, won: bool) -> void:
+	var county := int(_battle.county)
+	var cname: String = Profile.war().map.names[county]
+	var res: Dictionary = Profile.finish_battle(county, won, _battle)
+	v.add_child(UiKit.label(("%s County is yours!" if won else "%s County holds out.") % cname, 10,
+		Color("2f5d3a") if won else Color("7a2a1a")))
+	for p in res.payments:
+		var r := int(p.rival)
+		var row := UiKit.hbox(3)
+		var who: String = Session.rival_def(r).get("short", "")
+		var col := Color("2f5d3a") if won else Color("7a2a1a")
+		row.add_child(UiKit.label(("%s pays you" if won else "You pay %s") % who, 8, col))
+		row.add_child(UiKit.dollar_amount(int(p.amount), 8, col))
+		v.add_child(row)
+	var bal := UiKit.hbox(3)
+	bal.add_child(UiKit.label("Campaign dollars:", 8))
+	bal.add_child(UiKit.dollar_amount(Profile.dollars()))
+	bal.add_child(UiKit.label("   ", 8))
+	var drop := TextureRect.new()
+	drop.texture = UiKit.tex("res://assets/ui/icon_liquid_gold.png")
+	bal.add_child(drop)
+	bal.add_child(UiKit.label("+%d Liquid Gold" % int(res.liquid_gold), 8, Color("7a5a10")))
+	v.add_child(bal)
+	for id in res.unlocked:
+		v.add_child(UiKit.label("Unlocked: %s" % Cosmetics.name_of(id), 8, Color("2f5d3a")))
+	for r in res.knocked_out:
+		v.add_child(UiKit.label("%s is broke and out of the running!" % Session.rival_def(int(r)).get("name", ""), 8, Color("8a2e1a")))
+	if res.campaign_won:
+		v.add_child(UiKit.label("Every rival is beaten. Texas is yours!", 10, Color("7a5a10")))
+	elif won and not (_battle.rivals as Array).is_empty():
+		var rival: Dictionary = Session.rival_def(int(_battle.rivals[0]))
+		var quote := UiKit.label("\"%s\" - %s" % [rival.get("lose", ""), rival.get("name", "")], 8)
+		quote.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		quote.custom_minimum_size.x = 300
+		v.add_child(quote)
 
 
 func _show_message(text: String, then: Callable) -> void:

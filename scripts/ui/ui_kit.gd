@@ -47,6 +47,37 @@ static func money(v: int) -> String:
 	return ("-$" if neg else "$") + s + out
 
 
+## Campaign dollars are written with their own $ sign (icon_dollar.png) and no "$" in the text.
+const DOLLAR_ICON := "res://assets/ui/icon_dollar.png"
+
+
+## "250,000": a campaign-dollar amount without the $ (the icon stands in for it).
+static func dollar_text(v: int) -> String:
+	return money(v).replace("$", "")
+
+
+## The campaign-dollar sign.
+static func dollar_icon() -> TextureRect:
+	var t := TextureRect.new()
+	t.texture = tex(DOLLAR_ICON)
+	t.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	t.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	t.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return t
+
+
+## A campaign-dollar amount: the $ sign and the number.
+static func dollar_amount(v: int, size: int = 8, color: Color = INK) -> HBoxContainer:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 1)
+	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if v < 0:
+		row.add_child(label("-", size, color))
+	row.add_child(dollar_icon())
+	row.add_child(label(dollar_text(absi(v)), size, color))
+	return row
+
+
 static func tex(path: String) -> Texture2D:
 	if ResourceLoader.exists(path):
 		return load(path) as Texture2D

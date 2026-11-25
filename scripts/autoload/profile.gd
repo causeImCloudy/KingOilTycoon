@@ -1,5 +1,6 @@
 extends Node
-## Persistent player profile: Liquid Gold, upgrades, cosmetics, campaign progress, settings.
+## Persistent player profile: Liquid Gold (cosmetics), the campaign war (its dollars buy
+## upgrades), upgrades, cosmetics, settings.
 ## Saved to user://profile.save.
 
 signal changed
@@ -7,6 +8,7 @@ signal changed
 const PATH := "user://profile.save"
 
 var data: Dictionary = {}
+var _war: CampaignWar = null
 
 
 func _ready() -> void:
@@ -22,7 +24,10 @@ func defaults() -> Dictionary:
 		"upgrades": {},
 		"unlocked": [],
 		"look": Cosmetics.DEFAULT_LOOK.duplicate(),
+		# Campaign levels (campaign.json maps) won at least once: their unlocks are given once.
 		"campaign_done": [],
+		# The county war (CampaignWar.to_dict); empty until the campaign is first opened.
+		"war": {},
 		# Set once the player finishes character creation before their first campaign map.
 		"character_created": false,
 		"settings": {
@@ -39,6 +44,7 @@ func defaults() -> Dictionary:
 
 func load_profile() -> void:
 	data = defaults()
+	_war = null
 	if FileAccess.file_exists(PATH):
 		var f := FileAccess.open(PATH, FileAccess.READ)
 		var loaded = f.get_var()
@@ -49,7 +55,15 @@ func load_profile() -> void:
 			data.settings = s
 
 
+## Replaces the whole profile (tests restore a backup this way); the war is re-read from it.
+func restore(d: Dictionary) -> void:
+	data = d
+	_war = null
+
+
 func save() -> void:
+	if _war != null:
+		data.war = _war.to_dict()
 	var f := FileAccess.open(PATH, FileAccess.WRITE)
 	f.store_var(data)
 	changed.emit()
@@ -144,11 +158,11 @@ func upgrade_level(id: String) -> int:
 	return data.upgrades.get(id, 0)
 
 
+## Upgrades are bought with campaign dollars.
 func buy_upgrade(id: String) -> bool:
 	var cost := Upgrades.next_cost(id, upgrade_level(id))
-	if cost < 0 or cost > data.liquid_gold:
+	if cost < 0 or not war().spend(cost):
 		return false
-	data.liquid_gold -= cost
 	data.upgrades[id] = upgrade_level(id) + 1
 	save()
 	return true
@@ -160,24 +174,40 @@ func campaign_mods() -> Dictionary:
 
 # --- Campaign ---------------------------------------------------------------------
 
+## The county war in progress (made on first use).
+func war() -> CampaignWar:
+	if _war == null:
+		_war = CampaignWar.from_dict(data.get("war", {}), Session.campaign.get("maps", []))
+	return _war
+
+
+## Campaign dollars: won from rivals, spent on upgrades.
+func dollars() -> int:
+	return war().dollars
+
+
+## Starts the campaign over: a fresh map, dollars, and no upgrades.
+func new_campaign() -> void:
+	_war = CampaignWar.create(Session.campaign.get("maps", []))
+	data.upgrades = {}
+	save()
+
+
 func map_done(i: int) -> bool:
 	return i in data.campaign_done
 
 
-func map_unlocked(i: int) -> bool:
-	return i == 0 or map_done(i - 1) or map_done(i)
-
-
-## Records a finished campaign map and returns the rewards.
-func complete_map(i: int, won: bool, map_def: Dictionary) -> Dictionary:
-	var first_win := won and not map_done(i)
-	var lg: int = int(map_def.reward) if won else int(map_def.reward) / 4
-	if won and not first_win:
-		lg = int(map_def.reward) / 2 # replays pay half
+## Records a finished county battle: the war result (CampaignWar.resolve) plus Liquid Gold
+## (`def.reward`, a quarter for a loss) and, the first time a level is won, its unlocks.
+func finish_battle(county: int, won: bool, def: Dictionary) -> Dictionary:
+	var res := war().resolve(county, won)
+	var level := int(def.get("level", -1))
+	var lg: int = int(def.get("reward", 40)) if won else int(def.get("reward", 40)) / 4
 	data.liquid_gold += lg
-	var unlocked: Array = []
-	if first_win:
-		data.campaign_done.append(i)
-		unlocked = unlock(map_def.get("unlocks", []))
+	res.liquid_gold = lg
+	res.unlocked = []
+	if won and level >= 0 and not map_done(level):
+		data.campaign_done.append(level)
+		res.unlocked = unlock(def.get("unlocks", []))
 	save()
-	return {"liquid_gold": lg, "unlocked": unlocked, "first_win": first_win}
+	return res

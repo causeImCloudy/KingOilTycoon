@@ -266,6 +266,7 @@ func start_match() -> bool:
 	var s := GameState.new_match(config)
 	Session.net_mode = "host"
 	Session.campaign_index = -1
+	Session.campaign_county = -1
 	Session.resume_state = s.to_dict(true)
 	_start_client.rpc(s.to_dict(false))
 	Session.goto("match")
@@ -276,6 +277,7 @@ func start_match() -> bool:
 func _start_client(public_state: Dictionary) -> void:
 	Session.net_mode = "client"
 	Session.campaign_index = -1
+	Session.campaign_county = -1
 	Session.resume_state = public_state
 	match_started.emit(public_state)
 	Session.goto("match")

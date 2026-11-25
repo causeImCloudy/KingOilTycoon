@@ -137,7 +137,7 @@ func _classic_test() -> void:
 			break
 	if t >= 240.0:
 		print("CLASSIC did not finish in time")
-	Profile.data = backup
+	Profile.restore(backup)
 	Session.delete_save()
 
 
@@ -149,6 +149,9 @@ func _shop_test() -> void:
 	Profile.data.liquid_gold = 300
 	Profile.data.unlocked = []
 	Profile.data.upgrades = {}
+	Profile.data.war = {}
+	Profile.restore(Profile.data)
+	Profile.war().dollars = 30000
 	Profile.data.look = Cosmetics.DEFAULT_LOOK.duplicate()
 	Session.open_shop("outfit", "menu")
 	await _wait(0.8)
@@ -174,7 +177,7 @@ func _shop_test() -> void:
 	shop._set_tab("upgrades")
 	shop.buy_btn.pressed.emit()
 	await _wait(0.3)
-	print("SHOPTEST buy upgrade: ", "PASS" if Profile.upgrade_level("yield") == 1 and Profile.liquid_gold() == 50 else "FAIL")
+	print("SHOPTEST buy upgrade with campaign dollars: ", "PASS" if Profile.upgrade_level("yield") == 1 and Profile.dollars() == 10000 and Profile.liquid_gold() == 90 else "FAIL $%d lg=%d" % [Profile.dollars(), Profile.liquid_gold()])
 	await _shot("shop_upgrades")
 	shop._set_tab("paint")
 	await _wait(0.3)
@@ -184,14 +187,14 @@ func _shop_test() -> void:
 	shop._show_detail()
 	shop.buy_btn.pressed.emit()
 	await _wait(0.3)
-	print("SHOPTEST buy siding (and use it): ", "PASS" if Profile.look().siding == "siding_yellow" and Profile.liquid_gold() == 20 else "FAIL")
+	print("SHOPTEST buy siding (and use it): ", "PASS" if Profile.look().siding == "siding_yellow" and Profile.liquid_gold() == 60 else "FAIL")
 	shop._set_tab("house")
 	shop.selected = "house_mansion"
 	shop._show_detail()
 	await _wait(0.3)
 	print("SHOPTEST house too dear is disabled: ", "PASS" if shop.buy_btn.disabled else "FAIL")
 	await _shot("shop_houses")
-	Profile.data = backup
+	Profile.restore(backup)
 	if had_file:
 		Profile.save()
 	else:
@@ -493,17 +496,21 @@ func _click_test() -> void:
 	await _shot("trade_done")
 	m.state.players[1].is_ai = true
 
-	# Campaign map: click spot 2 (requires map 1 won) and check the tycoon walks there.
+	# Campaign county map: click a county you can fight for and check it's selected.
 	Profile.data.character_created = true
-	Profile.data.campaign_done = [0]
-	Profile.data.campaign_pos = 0
+	Profile.new_campaign()
 	Session.goto("campaign")
 	await _wait(0.6)
 	var c := get_tree().current_scene
-	await _click_canvas(c._spot(1))
-	await _wait(0.8)
-	print("CLICKTEST campaign spot: ", "PASS" if c.current == 1 else "FAIL (current=%d)" % c.current)
-	Profile.data = backup
+	var county_pick := -1
+	for k in c.map.count():
+		if c.war.attackable(k) and k != c.selected:
+			county_pick = k
+	await _click_canvas(c.map.centers[county_pick])
+	await _wait(0.4)
+	var fight := _find_button(c.play_box, "Fight!")
+	print("CLICKTEST campaign county: ", "PASS" if c.selected == county_pick and fight != null and not fight.disabled else "FAIL (selected=%d)" % c.selected)
+	Profile.restore(backup)
 	if had_file:
 		Profile.save()
 	else:
@@ -524,23 +531,32 @@ func _find_button(root: Node, text: String) -> Button:
 	return null
 
 
-## World map with some progress: 6 maps won, then the tycoon walks one spot. Profile restored.
+## County map with some progress: eight battles fought (one lost), then another county picked.
+## Profile restored.
 func _campaign_map_progress() -> void:
 	var had_file := FileAccess.file_exists(Profile.PATH)
 	var backup: Dictionary = Profile.data.duplicate(true)
-	Profile.data.campaign_done = [0, 1, 2, 3, 4, 5]
-	Profile.data.campaign_pos = 5
+	Profile.new_campaign()
+	var w := Profile.war()
+	for k in 8:
+		var best := -1
+		for c in w.map.count():
+			if w.attackable(c) and (best < 0 or w.value[c] > w.value[best]):
+				best = c
+		w.resolve(best, k != 3)
 	Profile.data.liquid_gold = 245
+	Profile.save()
 	Session.goto("campaign")
 	await _wait(0.6)
 	await _shot("campaign_progress")
-	var ev := InputEventKey.new()
-	ev.keycode = KEY_RIGHT
-	ev.pressed = true
-	Input.parse_input_event(ev)
-	await _wait(0.8)
-	await _shot("campaign_walked")
-	Profile.data = backup
+	var scene := get_tree().current_scene
+	for c in w.map.count():
+		if w.owner[c] > 0 and not w.attackable(c):
+			await _click_canvas(w.map.centers[c])
+			break
+	await _wait(0.5)
+	await _shot("campaign_selected")
+	Profile.restore(backup)
 	if had_file:
 		Profile.save()
 	else:
@@ -553,7 +569,9 @@ func _campaign_test() -> void:
 	var backup: Dictionary = Profile.data.duplicate(true)
 	# Title card of level 7 at normal speed, then play level 1 at instant speed.
 	Profile.data.settings.anim_speed = 1.0
-	Session.start_offline(Session.campaign_config(6), 6)
+	Profile.new_campaign()
+	var story_county: int = Profile.war().level_of.find(6)
+	Session.start_offline(Session.campaign_config(story_county), story_county)
 	await _wait(1.2)
 	await _shot("level_intro")
 	await _wait(0.3)
@@ -562,7 +580,8 @@ func _campaign_test() -> void:
 	await _shot("level_backdrop")
 	Session.delete_save()
 	Profile.data.settings.anim_speed = 99.0
-	Session.start_offline(Session.campaign_config(0), 0)
+	var first_county: int = Profile.war().level_of.find(0)
+	Session.start_offline(Session.campaign_config(first_county), first_county)
 	var t := 0.0
 	var done := false
 	while t < 120.0:
@@ -573,11 +592,14 @@ func _campaign_test() -> void:
 			done = true
 			await _wait(0.3)
 			await _shot("campaign_result")
-			print("CAMPAIGN result: winner=%d turns=%d liquid_gold=%d" % [m.state.winner, m.state.turn_number, Profile.liquid_gold()])
+			var w := Profile.war()
+			var won_ok: bool = (m.state.winner == 0) == (w.owner[first_county] == 0)
+			print("CAMPAIGN result: winner=%d turns=%d dollars=%d liquid_gold=%d county owner=%d %s" % [m.state.winner,
+				m.state.turn_number, Profile.dollars(), Profile.liquid_gold(), w.owner[first_county], "PASS" if won_ok else "FAIL"])
 			break
 	if not done:
 		print("CAMPAIGN did not finish in time")
-	Profile.data = backup
+	Profile.restore(backup)
 	if had_file:
 		Profile.save()
 	else:

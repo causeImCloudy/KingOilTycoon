@@ -2,7 +2,7 @@
 
 [Production artwork](../assets/ui/campaign_map.png) · 356 × 336 px · Opaque RGB
 
-The landscape fills the map area beneath the campaign header. Towns, roads, the timber bridge, gates, flags and the travelling tycoon are drawn in Godot. The map coordinates in campaign.json include the 24 px header offset.
+Godot samples the landscape across the 40 interactive counties. The terrain starts at screen y=24 under the campaign header. Ownership colors, borders, selection highlights, HQ buildings and flags are drawn at runtime. The [atlas sheet](../assets/ui/campaign_atlas.png) supplies the printed map surround and the Gulf.
 
 ## Built-in image generation prompt
 

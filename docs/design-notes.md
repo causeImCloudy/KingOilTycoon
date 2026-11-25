@@ -486,3 +486,47 @@ User asked for trades of money, properties, and the ability to purchase property
   8 derricks: L1 $4k, L2 $12k, L3 $20k a round (was $4k/$8k/$12k). Same curve as Classic.
 - Sim medians (2/4/6 players): Long 72/233/275, Online 61/87/100 (6p round-cap endings 8 -> 3
   of 12), Blitz 31/40/53.
+
+## Campaign: the county war (2026-11-23, user)
+- The walking trail is replaced by a **county map**: a raised outline of Texas (stylized, made
+  from ~55 lon/lat points) cut into 40 counties (Voronoi cells from seed 1938, relaxed so they're
+  even). Claimed counties take their owner's company color, open ones are grey. Code:
+  `CountyMap` (shape, neighbors, distances, homes), `CampaignWar` (rules, headless),
+  `campaign_screen.gd` (drawing and input). County names are made up.
+- **Companies:** you (red, start in the Rolling Plains next to the Panhandle) and the five rivals,
+  each with an HQ and about five counties: Hardpan (Panhandle, blue), Dolores (Hill Country,
+  cream), Judge Pickett (Piney Woods, mustard), Ruby (Permian Basin, green), Blackwood (Gulf
+  Coast, plum). Your start's neighbors stay open so the first fights are easy. Each rival keeps
+  their map color in every battle.
+- **Battles:** fight any county next to your land. You face its owner plus every other rival
+  whose HQ is within 2 counties, 1-3 rivals in all (always at least the nearest). Difficulty =
+  rival tier (Hardpan/Dolores easy, Pickett/Ruby medium, Blackwood hard) +1 on or next to their
+  HQ. Pace: Blitz with one rival, Online with more (story levels keep their own pace).
+- **Money (campaign dollars, their own $ sign):** you start with 50,000; rivals with 200k / 240k /
+  280k / 330k / 400k. Each county has a worth (40k-80k; story levels reward x 1000; HQs at least
+  150k). Win: the county is yours, its owner pays its worth, other rivals in the battle a quarter
+  (half each for open land). Lose: you pay a fifth of your dollars, split among them. A rival with
+  no dollars or no land is **out**: their HQ is boarded up and their counties go open. Knock out
+  all five to win the campaign. Dollars buy the campaign upgrades (prices x500 of the old Liquid
+  Gold prices: 15k-175k a level, about 1.7M for everything).
+- **Liquid Gold** stays as the cosmetics currency: each battle pays a level's reward (40 for
+  generated counties), a quarter for a loss. Story-level unlocks are given the first time it's
+  won (`campaign_done`).
+- **Story levels:** the 20 levels in `campaign.json` each sit on a county: each rival's HQ plays
+  one (Dry Creek Gamble, Saturday Night Boomtown, Hung Jury, Sandstorm, King of Texas), First
+  Lease sits next to your start, the rest go nearest the HQ of the first rival they name. They keep
+  their title, intro, art, board and decoration; the opponents are still chosen by distance, so
+  an intro can name a rival who isn't at the table. Generated counties get a plain intro, a random
+  board (seed 5000 + county) and the board look of the nearest story county. A level made for 5-6
+  players keeps its big board (`board_players` match setting) even with fewer rivals.
+- **Map screen:** hover lifts a county and names it; click shows its briefing (owner, worth,
+  opponents with difficulty stars, win/lose stakes next to the Fight button); Fight, Enter, or a
+  second click starts it. Crossed markers = counties you can fight for, stars = story counties,
+  derricks = your land, houses with flags = rival HQs. **New Campaign** (top bar) starts over:
+  new map, 50,000 dollars, no upgrades; Liquid Gold and looks stay. Winning shows a victory
+  dialog with New Campaign.
+- **Balance check** (`test_campaign_war`): a player who always goes after the richest county
+  and wins 60% of battles needs about 22 wins (16-27) out of 40 counties.
+- Old saves: profiles without `war` start a fresh campaign; the old `campaign_pos` is ignored.
+  Saved games now store `campaign_county`.
+- Campaign art uses the 9×12 gold dollar icon and samples `assets/ui/campaign_map.png` across the counties. The surrounding parchment, compass and Gulf are on `assets/ui/campaign_atlas.png`.

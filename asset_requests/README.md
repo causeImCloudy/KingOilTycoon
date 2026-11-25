@@ -7,6 +7,7 @@ with the same size and frame layout. The generator never overwrites existing fil
 | Asset | Size | Has placeholder |
 |---|---|---|
 | `assets/ui/icon_liquid_gold.png` | 16x16 | yes |
+| `assets/ui/icon_dollar.png` | 9x12 | yes |
 | `assets/ui/icon_cash.png` | 16x16 | yes |
 | `assets/sprites/drill_rig.png` | 24x32 | yes |
 | `assets/sprites/derrick.png` | 9x14 | yes |
@@ -26,7 +27,8 @@ with the same size and frame layout. The generator never overwrites existing fil
 | `assets/ui/menu_bg.png` | 640x360 | yes |
 | `assets/ui/icon_star.png` | 9x9 | yes |
 | `assets/ui/icon_star_empty.png` | 9x9 | yes |
-| `assets/ui/campaign_map.png` | 640x360 | yes |
+| `assets/ui/campaign_map.png` | 356x336 | yes |
+| `assets/ui/campaign_atlas.png` | 356x336 | yes |
 | `assets/ui/title_logo.png` | 256x64 | yes |
 | `assets/sprites/character/body.png` | 32x48 per frame; 4 columns x 4 rows (128x192) | yes |
 | `assets/sprites/character/outfit.png` | same as body.png | yes |

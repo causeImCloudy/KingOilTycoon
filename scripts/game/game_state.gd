@@ -83,6 +83,7 @@ const DEFAULT_MODS: Dictionary = {
 ## settings = {
 ##   seed: int (0 = random; drives oil, deck, draft order), board_seed: int (optional: the board
 ##   layout's seed, so a campaign level keeps its board while oil and cards change every match),
+##   board_players: int (optional: size the board for this many players),
 ##   map_type: "procedural"|"classic", speed: MatchSpeed or dict,
 ##   players: [{name, is_ai, ai_level, character: {}, mods: {}, net_id}], campaign: bool
 ## }
@@ -107,7 +108,9 @@ static func new_match(match_settings: Dictionary) -> GameState:
 	var player_cfgs: Array = match_settings.players
 	assert(player_cfgs.size() >= 2 and player_cfgs.size() <= GameConst.MAX_PLAYERS)
 	var board_seed: int = int(match_settings.get("board_seed", seed_value))
-	s.board = BoardMap.create(match_settings.get("map_type", "procedural"), board_seed, player_cfgs.size(),
+	# board_players: build the board for this many players (a campaign level keeps its big board).
+	var board_players: int = maxi(player_cfgs.size(), int(match_settings.get("board_players", 0)))
+	s.board = BoardMap.create(match_settings.get("map_type", "procedural"), board_seed, board_players,
 		str(match_settings.get("board_id", "")))
 	s.oil = OilField.create(s.board, s.rng)
 	s.bank = s.speed.bank_size
